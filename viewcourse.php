@@ -12,7 +12,7 @@ if(isset($_POST['but_logout'])){
     session_destroy();
     header('Location: index.php');}
 
-
+    /*--=========================DB==============================*/ 
     $db= $con;
     $tableName="tbl_course";
     $columns= ['*'];
@@ -41,6 +41,7 @@ if(isset($_POST['but_logout'])){
     }
     return $msg;
     }
+     /*--=========================DB==============================*/ 
 ?>
 <!DOCTYPE html>
 <html lang="en">
