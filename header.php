@@ -70,7 +70,7 @@ if(isset($_POST['but_logout'])){
     <div class="container" >
     
         <a class="navbar-brand d-flex align-items-center text-white" href="/sims">
-            <h3 class="font-weight-bolder mb-0">Student Information Management System</h3>
+            <h3 class="font-weight-bolder mb-0"><i>Student Information Management System</i></h3>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-nav-header" aria-controls="navbar-nav-header" aria-expanded="false" aria-label="Toggle navigation">
             <span class="lnr lnr-menu"></span>

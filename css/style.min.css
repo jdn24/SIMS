@@ -154,9 +154,9 @@ section {
     /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #333399, #ff00cc);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }
-  .overlay.bg-white {
+  .overlay-bg-white {
     color: #fff; }
-    .overlay.bg-white:before {
+    .overlay-bg-white:before {
       background: #fff;
       opacity: .7; }
 
