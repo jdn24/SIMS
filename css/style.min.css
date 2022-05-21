@@ -60,7 +60,7 @@ section {
 .title-wrap,
 .section-title {
   text-align: center;
-  color: #ff00cc; }
+  color: #fff; }
 
 .shadow {
   box-shadow: 0 10px 30px 0 rgba(67, 80, 98, 0.24), 0 2px 4px 0 rgba(67, 80, 98, 0.1) !important; }
@@ -155,7 +155,7 @@ section {
     background: linear-gradient(to right, #333399, #ff00cc);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }
   .overlay.bg-white {
-    color: #ff00cc; }
+    color: #fff; }
     .overlay.bg-white:before {
       background: #fff;
       opacity: .7; }
@@ -171,7 +171,7 @@ section {
   font-weight: 600;
   border-radius: 30px;
   padding: 9px 25px;
-  text-transform: capitalize;
+  text-trans: capitalize;
   transition: all 0.3s ease 0s; }
 
 .btn-primary {
@@ -206,7 +206,7 @@ section {
 
 /*=====  End of BUTTON  ======*/
 /*==========================================
-=            FORM RECTANGLE ETC            =
+=             RECTANGLE ETC            =
 ==========================================*/
 .rectangle-1 {
   width: 2000px;

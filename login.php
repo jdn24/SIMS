@@ -31,15 +31,16 @@ if(isset($_POST['but_submit'])){
 ?>
 <html>
     <head>
-        <title>Create simple login page with PHP and MySQL</title>
+        <title>SIMS | Login</title>
         <head>
+        <link rel="icon" type="image/x-icon" href="/img/icons/favicon.ico">
     <!--
      - Roxy: Bootstrap template by GettTemplates.com
      - https://gettemplates.co/roxy
     -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Roxy by GetTemplates.co</title>
+    
     <meta name="description" content="Roxy">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -67,22 +68,26 @@ if(isset($_POST['but_submit'])){
       
            
         <div class="jumbotron d-flex align-items-center">
-  <div class="container text-center">
-  <form method="post" action="">
-                <div id="div_login">
-                    <h1>Login</h1>
-                    <div>
-                        <input type="text" class="textbox" id="txt_uname" name="txt_uname" placeholder="Username" />
-                    </div>
-                    <div>
-                        <input type="password" class="textbox" id="txt_uname" name="txt_pwd" placeholder="Password"/>
-                    </div>
-                    <div>
-                        <input type="submit" class="btn-primary button5"value="Submit" name="but_submit" id="but_submit" />
-                    </div>
-                </div>
-            </form>
-  </div>
+  <div class="container text-center" >
+                    <h1>SIMS</h1>
+                    <h2>Login</h2>
+                    
+  
+                    <form method="post" name="contact-us" action="">
+                    <div id="div_login" >
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                            <input type="text" class="textbox" id="txt_uname" name="txt_uname" placeholder="Username" />
+                            </div>
+                            <div class="col-md-12 form-group">
+                            <input type="password" class="textbox" id="txt_uname" name="txt_pwd" placeholder="Password"/>
+                            </div>
+                            <div class="col-md-12 text-center">
+                                <button class="btn btn-primary btn-shadow btn-lg" type="submit"  name="but_submit" id="but_submit">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div></div>
   <div class="rectangle-1"></div>
   <div class="rectangle-2"></div>
   <div class="rectangle-transparent-1"></div>

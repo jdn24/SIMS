@@ -1,4 +1,3 @@
-
 <?php session_start();
 
 include "config/config.php";
@@ -14,19 +13,17 @@ if(isset($_POST['but_logout'])){
     header('Location: index.php');
 }
 ?>
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-<link rel="icon" type="image/x-icon" href="/img/icons/favicon.ico">
     <!--
      - Roxy: Bootstrap template by GettTemplates.com
      - https://gettemplates.co/roxy
     -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SIMS | Home</title>
+    <title></title>
     <meta name="description" content="Roxy">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -50,40 +47,68 @@ if(isset($_POST['but_logout'])){
 
 </head>
 <body data-spy="scroll" data-target="#navbar" class="static-layout">
- <!--=========================HEADER==============================-->
-<?php include 'header.php';?>
-<!--=========================HEADER==============================-->
+		<div id="side-search" class="sidenav">
+	<a href="javascript:void(0)" id="side-search-close">&times;</a>
+	<div class="sidenav-content">
+		<form action="">
 
-<div class="jumbotron d-flex align-items-center">
+			<div class="input-group md-form form-sm form-2 pl-0">
+			  <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search">
+			  <div class="input-group-append">
+			    <button class="input-group-text red lighten-3" id="basic-text1">
+			    	<span class="lnr lnr-magnifier"></span>
+			    </button>
+			  </div>
+			</div>
+
+		</form>
+	</div>
+	
+</div>	
+<!--=========================NAV BAR==============================-->
+<nav id="header-navbar" class="navbar navbar-expand-lg py-4">
+    <div class="container" >
     
-  <div class="container text-center">
-    <h1 class="display-1 mb-4">SIMS</h1>
-  </div>
-  
-  <div class="rectangle-1"></div>
-  <div class="rectangle-2"></div>
-  <div class="rectangle-transparent-1"></div>
-  <div class="rectangle-transparent-2"></div>
-  <div class="circle-1"></div>
-  <div class="circle-2"></div>
-  <div class="circle-3"></div>
-  <div class="triangle triangle-1">
-  	<img src="img/obj_triangle.png" alt="">
-  </div>
-  <div class="triangle triangle-2">
-  	<img src="img/obj_triangle.png" alt="">
-  </div>
-  <div class="triangle triangle-3">
-  	<img src="img/obj_triangle.png" alt="">
-  </div>
-  <div class="triangle triangle-4">
-  	<img src="img/obj_triangle.png" alt="">
-  </div></div>
-  <!--=========================FOOTER==============================-->
-<?php include 'footer.php';?>
-<!--=========================FOOTER==============================-->
+        <a class="navbar-brand d-flex align-items-center text-white" href="/sims">
+            <h3 class="font-weight-bolder mb-0">Student Information Management System</h3>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-nav-header" aria-controls="navbar-nav-header" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="lnr lnr-menu"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-nav-header">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/SIMS">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="course.php">Course</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="blog.html">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <form method='post' action="">
+            <input type="submit" class="btn btn-outline-primary" value="Logout" name="but_logout">
+        </form>
+                </li>
+               <!--
+                 <li class="nav-item only-desktop">
+                    <a class="nav-link" id="side-nav-open" href="#">
+                        <span class="lnr lnr-menu"></span>
+                    </a>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+</nav>
 
-	<!-- External JS -->
+<!--=========================NAV BAR==============================-->
+
+	
+<!-- External JS -->
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
 	<script src="vendor/bootstrap/popper.min.js"></script>
 	<script src="vendor/bootstrap/bootstrap.min.js"></script>
@@ -98,7 +123,5 @@ if(isset($_POST['but_logout'])){
 	<!-- Main JS -->
 	<script src="js/app.min.js "></script>
 	<script src="//localhost:35729/livereload.js"></script>
-
-
 </body>
 </html>

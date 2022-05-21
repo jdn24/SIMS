@@ -1,4 +1,3 @@
-
 <?php session_start();
 
 include "config/config.php";
@@ -14,19 +13,17 @@ if(isset($_POST['but_logout'])){
     header('Location: index.php');
 }
 ?>
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-<link rel="icon" type="image/x-icon" href="/img/icons/favicon.ico">
     <!--
      - Roxy: Bootstrap template by GettTemplates.com
      - https://gettemplates.co/roxy
     -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SIMS | Home</title>
+    <title>SIMS | Course</title>
     <meta name="description" content="Roxy">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -50,40 +47,49 @@ if(isset($_POST['but_logout'])){
 
 </head>
 <body data-spy="scroll" data-target="#navbar" class="static-layout">
- <!--=========================HEADER==============================-->
+<!--=========================HEADER==============================-->
 <?php include 'header.php';?>
 <!--=========================HEADER==============================-->
 
-<div class="jumbotron d-flex align-items-center">
-    
-  <div class="container text-center">
-    <h1 class="display-1 mb-4">SIMS</h1>
-  </div>
-  
-  <div class="rectangle-1"></div>
-  <div class="rectangle-2"></div>
-  <div class="rectangle-transparent-1"></div>
-  <div class="rectangle-transparent-2"></div>
-  <div class="circle-1"></div>
-  <div class="circle-2"></div>
-  <div class="circle-3"></div>
-  <div class="triangle triangle-1">
-  	<img src="img/obj_triangle.png" alt="">
-  </div>
-  <div class="triangle triangle-2">
-  	<img src="img/obj_triangle.png" alt="">
-  </div>
-  <div class="triangle triangle-3">
-  	<img src="img/obj_triangle.png" alt="">
-  </div>
-  <div class="triangle triangle-4">
-  	<img src="img/obj_triangle.png" alt="">
-  </div></div>
-  <!--=========================FOOTER==============================-->
+	<section id="who-we-are" class="overlay text-white">
+    <div class="container">
+        <div class="section-content">
+            <div class="col text-center" data-aos="fade-up">
+                <br>
+                <br>
+                <br>
+                <h2 class="section-title"><b>Course</b></h2>    
+            </div>
+            
+            <div class="row text-center section-content">
+            
+                <div class="col-md-4 col-sm-6" data-aos="fade-up">
+                    <img class="" src="img/viewcourse.png"  width="" height="">
+                    <h5 class="mb-4">View Courses</h5>
+                    <p>See an Overview of Different Courses available.</p><br>
+                    <p><a class="btn btn-primary" href="viewcourse.php" role="button">View Courses</a></p>
+                </div>
+                <!-- /.col-md-4 col-sm-6  -->
+                <div class="col-md-4 col-sm-6" data-aos="fade-up">
+</div>
+                <!-- /.col-md-4 col-sm-6  -->
+                <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+                    <img class="" src="img/editcourse.png"  width="" height="">
+                    <h5 class="mb-4">Add or Delete Courses</h5>
+                    <p>Add New Courses or Delete Existing ones to the List of Current Courses</p>
+                    <p><a class="btn btn-primary" href="addcourse.php" role="button">Add or Delete Courses</a></p>
+                </div>
+                
+                <!-- /.col-md-4 col-sm-6  -->
+            </div>
+            <!-- /.row -->
+        </div>
+    </div>
+</section>		</div>
+<!--=========================FOOTER==============================-->
 <?php include 'footer.php';?>
 <!--=========================FOOTER==============================-->
-
-	<!-- External JS -->
+<!-- External JS -->
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
 	<script src="vendor/bootstrap/popper.min.js"></script>
 	<script src="vendor/bootstrap/bootstrap.min.js"></script>
@@ -98,7 +104,5 @@ if(isset($_POST['but_logout'])){
 	<!-- Main JS -->
 	<script src="js/app.min.js "></script>
 	<script src="//localhost:35729/livereload.js"></script>
-
-
 </body>
 </html>
