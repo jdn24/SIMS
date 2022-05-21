@@ -1,7 +1,7 @@
 <?php
 include "config/config.php";
 
-if(isset($_SESSION['uname'])){
+if(isset($_SESSION['logged'])){
     header('Location: dashboard.php');}
 
 if(isset($_POST['but_submit'])){
@@ -19,7 +19,7 @@ if(isset($_POST['but_submit'])){
         $count = $row['cntUser'];
 
         if($count > 0){
-            $_SESSION['uname'] = $uname;
+            $_SESSION['logged'] = $uname;
             header('Location: dashboard.php');
         }else{
             echo "Invalid username and password";

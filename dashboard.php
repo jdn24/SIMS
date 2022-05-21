@@ -4,7 +4,7 @@
 include "config/config.php";
 
 // Check user login or not
-if(!isset($_SESSION['uname'])){
+if(!isset($_SESSION['logged'])){
     header('Location: index.php');
 }
 
