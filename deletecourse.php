@@ -14,29 +14,27 @@ if(isset($_POST['but_logout'])){
 }
 
 
-/*--=========================ADD DB==============================*/
-     if(isset($_POST['addcourse'])){
+/*--=========================DELETE DB==============================*/
+     if(isset($_POST['delete_cid'])){
         
         $db= $con;
         $id = $_POST['cid'];
-        $cshort=$_POST['cshort'];
-        $cfull=$_POST['cfull'];
-        $cdate=$_POST['udate'];
+           
 
 
-            //$sql = "insert into tbl_course values '$id','$cshort','$cfull','$cdate';";
-            $sql="INSERT INTO `tbl_course`(`cid`, `cshort`, `cfull`, `cdate`) VALUES ('$id','$cshort','$cfull','$cdate')  ;" ;
-            $result = $db->query($sql);
+            $sql = "delete from tbl_course ". 
+               "WHERE cid ='$id'" ;
+               $result = $db->query($sql);
             
                if($result== true){ 
-                header('Location: course.php');
+                header('Location: viewcourse.php');
                }else{
-                header('Location: addcourse.php');
+                header('Location: deletecourse.php');
                }
                }
         
    
-   /*--=========================ADD DB==============================*/
+   /*--=========================UPDATE DB==============================*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,7 +47,7 @@ if(isset($_POST['but_logout'])){
     -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SIMS | Add Course</title>
+    <title>SIMS | Delete Course</title>
     <meta name="description" content="Roxy">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -84,43 +82,30 @@ if(isset($_POST['but_logout'])){
                 <br>
                 <br>
                 <br>
-                <h2 class="section-title"><b>Add Course</b></h2>    
+                <h2 class="section-title"><b>Delete Course</b></h2>    
             </div>
             
             <div class="panel-body">
-            
+            <?php
+      if(is_array($fetchData))      
+      $sn=1;
+      foreach($fetchData as $data)
+    ?>
 
 <div class="section-content col-md-8 offset-md-2 contact-form-holder mt-4 text-center" data-aos="fade-up">
-<form method="post" name="course-add" action="">
+<form method="post" name="course-cid" action="">
                         <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
 					 <label>Enter CID<span id="" style="font-size:11px;color:red">*</span>	</label>
 											</div>
-                            <div class="col-md-6 form-group">
+                            <div class="col-md-12 form-group">
                                 <input type="text" name="cid" id="cid" value="<?php echo $data['cid']??''; ?>" placeholder="Enter Course ID" required="required" >
                             </div>
-                            <div class="col-md-6">
-					 <label>Enter Course Short Name<span id="" style="font-size:11px;color:red">*</span>	</label>
-											</div>
-                            <div class="col-md-6 form-group">
-                                <input type="text" name="cshort" id="cshort" placeholder="Enter Course Short Name" required="required" >
-                            </div>
-                            <div class="col-md-6">
-					 <label>Enter Course Full Name<span id="" style="font-size:11px;color:red">*</span>	</label>
-											</div>
-                            <div class="col-md-6 form-group">
-                                <input type="text" name="cfull" id="cfull" placeholder="Enter Course Full Name" required="required" >
-                            </div>
-                            <div class="col-md-6">
-	 <label>Date</label>
-	</div>
-                            <div class="col-md-6 form-group">
-                                <input type="text" value="<?php echo date('d-m-Y');?>" readonly="readonly" name="udate">
-                            </div>
-                            
                             <div class="col-md-12 text-center">
-                                <button class="btn btn-primary btn-shadow btn-lg" type="submit" name="addcourse">Add Course</button>
-                                 
+                                <button class="btn btn-primary btn-shadow btn-lg" type="submit" name="delete_cid">Delete Course</button>
+                                <a href="viewcourse.php">
+   <input type="button"class="btn btn-outline-primary btn-shadow" value="Cancel" />
+</a>  
             </div>
             </div>
             

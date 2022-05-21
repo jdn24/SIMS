@@ -12,31 +12,64 @@ if(isset($_POST['but_logout'])){
     session_destroy();
     header('Location: index.php');
 }
-
-
-/*--=========================ADD DB==============================*/
-     if(isset($_POST['addcourse'])){
+if(isset($_POST['search_ce'])){
+    $cid1 = $_POST['cid'];
+    header('Location: editcourse.php?cid='."$cid1");
+    $DisplayForm = False;
+}
+$id=$_GET['cid'];
+/*--=========================DB==============================*/ 
+    $db= $con;
+    $tableName="tbl_course";
+    $columns= ['*'];
+    $fetchData = fetch_data($db, $tableName, $columns, $id);
+    function fetch_data($db, $tableName, $columns, $id){
+     if(empty($db)){
+      $msg= "Database connection error";
+     }elseif (empty($columns) || !is_array($columns)) {
+      $msg="columns Name must be defined in an indexed array";
+     }elseif(empty($tableName)){
+       $msg= "Table Name is empty";
+    }else{
+    $columnName = implode(", ", $columns);
+    $query = "SELECT * FROM tbl_course WHERE cid= $id";
+    $result = $db->query($query);
+    if($result== true){ 
+     if ($result->num_rows > 0) {
+        $row= mysqli_fetch_all($result, MYSQLI_ASSOC);
+        $msg= $row;
+     } else {
+        $msg= "No Data Found"; 
+     }
+    }else{
+      $msg= mysqli_error($db);
+    }
+    }
+    return $msg;
+    }
+     /*--=========================DB==============================*/ 
+/*--=========================UPDATE DB==============================*/
+     if(isset($_POST['submit'])){
         
         $db= $con;
-        $id = $_POST['cid'];
-        $cshort=$_POST['cshort'];
-        $cfull=$_POST['cfull'];
-        $cdate=$_POST['udate'];
+        $cshort = $_POST['course-short'];
+            $cfull = $_POST['course-full'];
+            $cdate = $_POST['udate'];
 
 
-            //$sql = "insert into tbl_course values '$id','$cshort','$cfull','$cdate';";
-            $sql="INSERT INTO `tbl_course`(`cid`, `cshort`, `cfull`, `cdate`) VALUES ('$id','$cshort','$cfull','$cdate')  ;" ;
-            $result = $db->query($sql);
+            $sql = "UPDATE tbl_course ". "SET cshort ='$cshort', cfull='$cfull', cdate='$cdate' ". 
+               "WHERE cid ='$id'" ;
+               $result = $db->query($sql);
             
                if($result== true){ 
-                header('Location: course.php');
+                header('Location: viewcourse.php');
                }else{
-                header('Location: addcourse.php');
+                header('Location: editcourse.php');
                }
                }
         
    
-   /*--=========================ADD DB==============================*/
+   /*--=========================UPDATE DB==============================*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,7 +82,7 @@ if(isset($_POST['but_logout'])){
     -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SIMS | Add Course</title>
+    <title>SIMS | Edit Course</title>
     <meta name="description" content="Roxy">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -84,34 +117,47 @@ if(isset($_POST['but_logout'])){
                 <br>
                 <br>
                 <br>
-                <h2 class="section-title"><b>Add Course</b></h2>    
+                <h2 class="section-title"><b>Edit Course</b></h2>    
             </div>
             
             <div class="panel-body">
-            
+            <?php
+      if(is_array($fetchData))      
+      $sn=1;
+      foreach($fetchData as $data)
+    ?>
 
-<div class="section-content col-md-8 offset-md-2 contact-form-holder mt-4 text-center" data-aos="fade-up">
-<form method="post" name="course-add" action="">
+<div class="col-md-8 offset-md-2 contact-form-holder mt-4" data-aos="fade-up">
+<form method="post" name="course-cid" action="">
                         <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
 					 <label>Enter CID<span id="" style="font-size:11px;color:red">*</span>	</label>
 											</div>
-                            <div class="col-md-6 form-group">
+                            <div class="col-md-12 form-group">
                                 <input type="text" name="cid" id="cid" value="<?php echo $data['cid']??''; ?>" placeholder="Enter Course ID" required="required" >
                             </div>
-                            <div class="col-md-6">
-					 <label>Enter Course Short Name<span id="" style="font-size:11px;color:red">*</span>	</label>
+                            <div class="col-md-12 text-center">
+                                <button class="btn btn-primary btn-shadow btn-lg" type="submit" name="search_ce">Search Course</button>
+            </div>
+            </div>
+            
+            </form>
+
+                    <form method="post" name="course-edit" action="">
+                        <div class="row">
+                        <div class="col-md-12">
+					 <label>Course Short Name<span id="" style="font-size:11px;color:red">*</span>	</label>
 											</div>
-                            <div class="col-md-6 form-group">
-                                <input type="text" name="cshort" id="cshort" placeholder="Enter Course Short Name" required="required" >
+                            <div class="col-md-12 form-group">
+                                <input type="text" name="course-short" id="cshort"  value="<?php echo $data['cshort']??''; ?>" required="required" >
                             </div>
-                            <div class="col-md-6">
-					 <label>Enter Course Full Name<span id="" style="font-size:11px;color:red">*</span>	</label>
-											</div>
+                            <div class="col-md-12 ">
+		<label>Course Full Name<span id="" style="font-size:11px;color:red">*</span></label>
+		</div>
                             <div class="col-md-6 form-group">
-                                <input type="text" name="cfull" id="cfull" placeholder="Enter Course Full Name" required="required" >
+                                <input type="text" name="course-full" id="cfull" value="<?php echo $data['cfull']??''; ?>" required="required" >
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-12">
 	 <label>Date</label>
 	</div>
                             <div class="col-md-6 form-group">
@@ -119,12 +165,13 @@ if(isset($_POST['but_logout'])){
                             </div>
                             
                             <div class="col-md-12 text-center">
-                                <button class="btn btn-primary btn-shadow btn-lg" type="submit" name="addcourse">Add Course</button>
-                                 
+                                <button class="btn btn-primary btn-shadow btn-lg" type="submit" name="submit">Update Course</button>
+                                <a href="viewcourse.php">
+   <input type="button"class="btn btn-outline-primary btn-shadow btn-lg" value="Cancel" />
+                            </div>
             </div>
-            </div>
-            
-            </form>
+                        
+                    </form>
 </div>		
 													
 				</div>
@@ -132,8 +179,8 @@ if(isset($_POST['but_logout'])){
 					</div>
             <!-- /.row -->
         </div>
-    </div>
-</section>		</div>
+    
+</section>		
 <!--=========================FOOTER==============================-->
 <?php include 'footer.php';?>
 <!--=========================FOOTER==============================-->

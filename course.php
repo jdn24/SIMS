@@ -66,7 +66,7 @@ if(isset($_POST['but_logout'])){
                 <div class="col-md-4 col-sm-6" data-aos="fade-up">
                     <img class="" src="img/viewcourse.png"  width="" height="">
                     <h5 class="mb-4">View Courses</h5>
-                    <p>See an Overview of Different Courses available.</p><br>
+                    <p>See an Overview of Different Courses available & Delete or Edit the courses.</p>
                     <p><a class="btn btn-primary" href="viewcourse.php" role="button">View Courses</a></p>
                 </div>
                 <!-- /.col-md-4 col-sm-6  -->
@@ -75,9 +75,9 @@ if(isset($_POST['but_logout'])){
                 <!-- /.col-md-4 col-sm-6  -->
                 <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
                     <img class="" src="img/editcourse.png"  width="" height="">
-                    <h5 class="mb-4">Add or Delete Courses</h5>
-                    <p>Add New Courses or Delete Existing ones to the List of Current Courses</p>
-                    <p><a class="btn btn-primary" href="addcourse.php" role="button">Add or Delete Courses</a></p>
+                    <h5 class="mb-4">Add Courses</h5>
+                    <p>Add New Courses to the List of Current Courses</p><br>
+                    <p><a class="btn btn-primary" href="addcourse.php" role="button">Add Course</a></p>
                 </div>
                 
                 <!-- /.col-md-4 col-sm-6  -->

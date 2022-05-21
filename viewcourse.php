@@ -47,6 +47,14 @@ if(isset($_POST['but_logout'])){
 <html lang="en">
 
 <head>
+<script>
+function myFunction() {
+  let ccid = prompt("Please enter your CID");
+  if (ccid != null) {
+    
+  }
+}
+</script>
     <!--
      - Roxy: Bootstrap template by GettTemplates.com
      - https://gettemplates.co/roxy
@@ -77,6 +85,7 @@ if(isset($_POST['but_logout'])){
 
 </head>
 <body data-spy="scroll" data-target="#navbar" class="static-layout">
+    
 <!--=========================HEADER==============================-->
 <?php include 'header.php';?>
 <!--=========================HEADER==============================-->
@@ -91,7 +100,7 @@ if(isset($_POST['but_logout'])){
                 <h2 class="section-title"><b>View Courses</b></h2>    
             </div>
  <!--=========================TABLE==============================-->           
-            <div class="row">
+            <div class="row" data-aos="fade-up">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         
@@ -111,13 +120,17 @@ if(isset($_POST['but_logout'])){
                                     <?php
       if(is_array($fetchData)){      
       $sn=1;
+      
       foreach($fetchData as $data){
+          
     ?>
-                                    <tr>
-      <td><?php echo $sn; ?></td>
+    <tr>
+      <td><?php echo $data['cid']??''; ?></td>
       <td><?php echo $data['cshort']??''; ?></td>
       <td><?php echo $data['cfull']??''; ?></td>
       <td><?php echo $data['cdate']??''; ?></td>
+      <td>&nbsp;&nbsp;<a href="editcourse.php" <p class="fa fa-edit btn-outline-primary"></p></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                             <a href="deletecourse.php"> <p class="fa fa-times-circle btn-outline-primary"></p></td>
       
      </tr>
      <?php

@@ -84,11 +84,16 @@ if(isset($_POST['but_logout'])){
                     <a class="nav-link" href="course.php">Course</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="blog.html">Blog</a>
+                    <a class="nav-link" href="subject.php">Subject</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact</a>
+                    <a class="nav-link" href="students.html">Students</a>
                 </li>
+                <li class="nav-item">
+                    <form method='post' action="admin.html">
+            <input type="submit" class="btn btn-outline-primary" value="Admin" name="admin">
+        </form>
+                </li>&nbsp;&nbsp;
                 <li class="nav-item">
                     <form method='post' action="">
             <input type="submit" class="btn btn-outline-primary" value="Logout" name="but_logout">
