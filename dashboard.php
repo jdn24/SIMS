@@ -17,231 +17,637 @@ if(isset($_POST['but_logout'])){
 
 <!DOCTYPE html>
 <html>
-<head>
-<title>SIMS</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
-.w3-row-padding img {margin-bottom: 12px}
-/* Set the width of the sidebar to 120px */
-.w3-sidebar {width: 120px;background: #222;}
-/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
-#main {margin-left: 120px}
-/* Remove margins from "page content" on small screens */
-@media only screen and (max-width: 600px) {#main {margin-left: 0}}
-</style>
-</head>
-<body class="w3-black">
 
-<!-- Icon Bar (Sidebar - hidden on small screens) -->
-<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
-  <!-- Avatar image in top left corner -->
-  <img src="/w3images/avatar_smoke.jpg" style="width:100%">
-  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
-    <i class="fa fa-home w3-xxlarge"></i>
-    <p>HOME</p>
-  </a>
-  <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-user w3-xxlarge"></i>
-    <p>ABOUT</p>
-  </a>
-  <a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-eye w3-xxlarge"></i>
-    <p>PHOTOS</p>
-  </a>
-  <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-envelope w3-xxlarge"></i>
-    <p>CONTACT</p>
-  </a>
-  
+<head>
+    <!--
+     - Roxy: Bootstrap template by GettTemplates.com
+     - https://gettemplates.co/roxy
+    -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SIMS</title>
+    <meta name="description" content="Roxy">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/select2/select2.min.css">
+    <link rel="stylesheet" href="vendor/owlcarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="vendor/lightcase/lightcase.css">
+     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400|Work+Sans:300,400,700" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <!-- Modernizr JS for IE8 support of HTML5 elements and media queries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+
+</head>
+<body data-spy="scroll" data-target="#navbar" class="static-layout">
+	<nav id="header-navbar" class="navbar navbar-expand-lg py-4">
+    <div class="container">
+    
+        <a class="navbar-brand d-flex align-items-center text-white" href="/sims">
+            <h3 class="font-weight-bolder mb-0">Student Information Management System</h3>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-nav-header" aria-controls="navbar-nav-header" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="lnr lnr-menu"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-nav-header">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/SIMS">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="course/course.php">Course</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="blog.html">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <form method='post' action="">
+            <input type="submit" class="btn btn-outline-primary" value="Logout" name="but_logout">
+        </form>
+                </li>
+               <!--
+                 <li class="nav-item only-desktop">
+                    <a class="nav-link" id="side-nav-open" href="#">
+                        <span class="lnr lnr-menu"></span>
+                    </a>
+                </li> -->
+            </ul>
+        </div>
+    </div>
 </nav>
 
-<!-- Navbar on small screens (Hidden on medium and large screens) -->
-<div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
-  <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
-    <a href="#" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
-    <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
-    <a href="#photos" class="w3-bar-item w3-button" style="width:25% !important">PHOTOS</a>
-    <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">CONTACT</a>
-  </div>
+<div id="side-nav" class="sidenav">
+	<a href="javascript:void(0)" id="side-nav-close">&times;</a>
+	
+	<div class="sidenav-content">
+		<p>
+			Kuncen WB1, Wirobrajan 10010, DIY
+		</p>
+		<p>
+			<span class="fs-16 primary-color">(+68) 120034509</span>
+		</p>
+		<p>info@yourdomain.com</p>
+        
+	</div>
+
 </div>
 
-<!-- Page Content -->
-<div class="w3-padding-large" id="main">
-  <!-- Header/Home -->
-  <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
-    <h1 class="w3-jumbo"><span class="w3-hide-small">I'm</span> John Doe.</h1>
-    <p>Photographer and Web Designer.</p>
-    <img src="/w3images/man_smoke.jpg" alt="boy" class="w3-image" width="992" height="1108">
-    <form method='post' action="">
+<div class="jumbotron d-flex align-items-center">
+  <div class="container text-center">
+    <h1 class="display-1 mb-4">SIMS</h1>
+  </div>
+  <div class="rectangle-1"></div>
+  <div class="rectangle-2"></div>
+  <div class="rectangle-transparent-1"></div>
+  <div class="rectangle-transparent-2"></div>
+  <div class="circle-1"></div>
+  <div class="circle-2"></div>
+  <div class="circle-3"></div>
+  <div class="triangle triangle-1">
+  	<img src="img/obj_triangle.png" alt="">
+  </div>
+  <div class="triangle triangle-2">
+  	<img src="img/obj_triangle.png" alt="">
+  </div>
+  <div class="triangle triangle-3">
+  	<img src="img/obj_triangle.png" alt="">
+  </div>
+  <div class="triangle triangle-4">
+  	<img src="img/obj_triangle.png" alt="">
+  </div>
+</div>	<!-- Features Section-->
+<section id="features" class="bg-white">
+    <div class="container">
+        <div class="section-content">
+            <!-- Section Title -->
+            <div class="title-wrap mb-5" data-aos="fade-up">
+                <h2 class="section-title">
+                    A PHP based Management Sytem built by Jaden & Shahd</a>
+                </h2>
+                <p class="section-sub-title">Praesent commodo cursus magna, vel scelerisque nisl consectetur et. <br> pharetra augue. Donec id elit non mi.</p>
+            </div>
+            <!-- End of Section Title -->
+            <div class="row">
+                <!-- Features Holder-->
+                <div class="col-md-10 offset-md-1 features-holder">
+                    <div class="row">
+                        <!-- Features Item -->
+                        <div class="col-md-4 col-sm-12 text-center mt-4">
+                            <div class="shadow rounded feature-item p-4 mb-4" data-aos="fade-up">
+                                <div class="my-4">
+                                    <i class="lnr lnr-cog fs-40"></i>
+                                </div>
+                                <h4>Easy to Customize</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+                            </div>
+                            <div class="shadow rounded feature-item p-4 mb-4" data-aos="fade-up">
+                                <div class="my-4">
+                                    <i class="lnr lnr-frame-contract fs-40"></i>
+                                </div>
+                                <h4>Pixel Perfect</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+                            </div>
+                        </div>
+                        <!-- End of Feature Item -->
+                        <!-- Features Item -->
+                        <div class="col-md-4 col-sm-12 text-center">
+                            <div class="shadow rounded feature-item p-4 mb-4" data-aos="fade-up">
+                                <div class="my-4">
+                                    <i class="lnr lnr-bubble fs-40"></i>
+                                </div>
+                                <h4>Full Support</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+                            </div>
+                            <div class="shadow rounded feature-item p-4 mb-4" data-aos="fade-up">
+                                <div class="my-4">
+                                    <i class="lnr lnr-magic-wand fs-40"></i>
+                                </div>
+                                <h4>Clean Design</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+                            </div>
+                        </div>
+                        <!-- End of Feature Item -->
+                        <!-- Features Item -->
+                        <div class="col-md-4 col-sm-12 text-center mt-4">
+                            <div class="shadow rounded feature-item p-4 mb-4" data-aos="fade-up">
+                                <div class="my-4">
+                                    <i class="lnr lnr-clock fs-40"></i>
+                                </div>
+                                <h4>Ontime Project</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+                            </div>
+                            <div class="shadow rounded feature-item p-4 mb-4" data-aos="fade-up">
+                                <div class="my-4">
+                                    <i class="lnr lnr-thumbs-up fs-40"></i>
+                                </div>
+                                <h4>Built with SASS</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+                            </div>
+                        </div>
+                        <!-- End of Feature Item -->
+                    </div>
+                </div>
+                <!-- End of Features Holder-->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End of Features Section-->	<section id="section-featurettes" class="featurettes overlay bg-fixed" style="background-image: url(img/bg.jpg);">
+
+    <div class="container">
+        <div class="section-content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row align-items-center text-white">
+
+                        <div class="col-md-4 offset-md-2 col-sm-6" data-aos="fade-right">
+                            <h4 class="mb-4">Capture every moments and share it to all your friends</h4>
+                            <p>Nulla vitae elit libero, a pharetra augue. Maecenas sed diam eget risus varius blandit sit amet non magna. Cras mattis consectetur purus sit amet.</p>
+                            <button type="button" class="btn btn-outline-primary">FEATURES</button>
+                        </div><!--/ .col-md-4.col-md-offset-2.col-sm-6 -->
+
+                        <div class="col-md-4 offset-md-right-2 col-sm-6" data-aos="flip-right">
+                            <img class="my-5" src="img/app-profile-mockup.png" alt="">
+                        </div><!--/ .col-md-4.col-md-offset-right-2.col-sm-6 -->
+
+                    </div><!--/ .featurettes-item -->
+
+                </div><!--/ .col-md-12 -->
+
+            </div><!--/ .row -->
+        </div>
+    </div><!--/ .container -->
+
+</section>	<section id="section-featurettes" class="featurettes">
+
+    <div class="container">
+        <div class="section-content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row align-items-center">
+
+                        <div class="col-md-4 offset-md-2 col-sm-6" data-aos="flip-left">
+                            <img class="my-5" src="img/app-profile-mockup.png" alt="">
+                        </div><!--/ .col-md-4.col-md-offset-right-2.col-sm-6 -->
+
+                        <div class="col-md-4 offset-md-right-2 col-sm-6" data-aos="fade-left">
+                            <h4 class="mb-4">Capture every moments and share it to all your friends</h4>
+                            <p>Nulla vitae elit libero, a pharetra augue. Maecenas sed diam eget risus varius blandit sit amet non magna. Cras mattis consectetur purus sit amet.</p>
+                            <div class="progress mb-3">
+                                <div class="progress-bar" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">HTML5 95%</div>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">CSS3 90%</div>
+                            </div>
+                        </div><!--/ .col-md-4.col-md-offset-2.col-sm-6 -->
+
+                    </div><!--/ .featurettes-item -->
+
+                </div><!--/ .col-md-12 -->
+
+            </div><!--/ .row -->
+        </div>
+    </div><!--/ .container -->
+
+</section>	<!-- Testimonial Section-->
+<section id="testimonial" class="section-padding bg-fixed bg-white overlay" style="background-image: url(img/bg-white.jpg);">
+    <div class="container">
+        <div class="section-content" data-aos="fade-up">
+            <div class="heading-section text-center">
+                <h2>
+                    User Testimonials
+                </h2>
+            </div>
+            <div class="row">
+                <!-- Testimonial -->
+                <div class="testi-content testi-carousel owl-carousel">
+                    <div class="testi-item text-center">
+                        <i class="testi-icon fa fa-3x fa-quote-left"></i>
+                        <h4 class="testi-text"><b>ROXY</b> is best theme i used so far.<br> It’s ideal for guys without coding knowledge like me!</h4>
+                        <div class="testi-meta-inner d-flex justify-content-center align-items-center">
+                            <div class="testi-img mr-2">
+                                <img src="img/testi-1.jpg" alt="">
+                            </div>
+                            <div class="testi-details">
+                                <p class="testi-author mb-0 font-weight-bolder">John Doe</p>
+                                <p class="testi-desc mb-0">Web Designer</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="testi-item text-center">
+                        <i class="testi-icon fa fa-3x fa-quote-left"></i>
+                        <h4 class="testi-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci <br> non doloribus ut, alias doloremque perspiciatis.</h4>
+                        <div class="testi-meta-inner d-flex justify-content-center align-items-center">
+                            <div class="testi-img mr-2">
+                                <img src="img/testi-1.jpg" alt="">
+                            </div>
+                            <div class="testi-details">
+                                <p class="testi-author mb-0 font-weight-bolder">John Doe</p>
+                                <p class="testi-desc mb-0">Web Designer</p>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="testi-item text-center">
+                        <i class="testi-icon fa fa-3x fa-quote-left"></i>
+                        <h4 class="testi-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci <br> non doloribus ut, alias doloremque perspiciatis.</h4>
+                        <div class="testi-meta-inner d-flex justify-content-center align-items-center">
+                            <div class="testi-img mr-2">
+                                <img src="img/testi-1.jpg" alt="">
+                            </div>
+                            <div class="testi-details">
+                                <p class="testi-author mb-0 font-weight-bolder">John Doe</p>
+                                <p class="testi-desc mb-0">Web Designer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of Testimonial -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End of Testimonial Section-->	<!-- Portfolio Section -->
+<section id="portfolio" class="bg-white">
+    <div class="container">
+        <div class="section-content">
+            <!-- Section Title -->
+            <div class="title-wrap">
+                <h2 class="section-title">Our <b>Awesome</b> Works</h2>
+                <p class="section-sub-title">Praesent commodo cursus magna, vel scelerisque nisl consectetur et. <br> pharetra augue. Donec id elit non mi.</p>
+            </div>
+            <!-- End of Section Title -->
+            <div class="row">
+                <!-- Portfolio Holder -->
+                <div class="col-md-12 portfolio-holder mt-3">
+                    <!-- Btn Filter -->
+                    <div class="filter-button-group btn-filter d-flex justify-content-center">
+                        <a tabindex="0" class="is-checked" data-filter="*">Show All</a>
+                        <a tabindex="0" data-filter=".minimalism">Minimalism</a>
+                        <a tabindex="0" data-filter=".vintage">Vintage</a>
+                        <a tabindex="0" data-filter=".creative">Creative</a>
+                    </div>
+                    <!-- End of Btn Filter -->
+                    <!-- Portfolio Content -->
+                    <div class="grid-portfolio">
+                        <div class="grid-sizer"></div>
+                        <div class="gutter-sizer"></div>
+                        <!-- Portfolio Item -->
+                        <div class="grid-item minimalism" data-aos="fade-up">
+                            <div class="grid-item-wrapper">
+                                <img src="img/photo-1.jpg" alt="portfolio-img" class="portfolio-item">
+                                <div class="grid-info">
+                                    <div class="grid-link d-flex justify-content-center">
+                                        <a class="img-pop" data-rel="lightcase" href="img/photo-1.jpg" title="Photo-1">
+                                            <span class="lnr lnr-move"></span>
+                                        </a>
+                                        <a class="ext-link" href="https://unsplash.com/" target="_blank">
+                                            <span class="lnr lnr-link"></span>
+                                        </a>
+                                    </div>
+                                    <div class="grid-title">
+                                        <h4>Camera</h4>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- End of Portfolio Item -->
+                        <!-- Portfolio Item -->
+                        <div class="grid-item vintage" data-aos="fade-up">
+                            <div class="grid-item-wrapper">
+                                <img src="img/photo-6.jpg" alt="portfolio-img" class="portfolio-item">
+                                <div class="grid-info">
+                                    <div class="grid-link d-flex justify-content-center">
+                                        <a class="img-pop" data-rel="lightcase" href="img/photo-6.jpg" title="Ship">
+                                            <span class="lnr lnr-move"></span>
+                                        </a>
+                                        <a class="ext-link" href="https://unsplash.com/" target="_blank">
+                                            <span class="lnr lnr-link"></span>
+                                        </a>
+                                    </div>
+                                    <div class="grid-title">
+                                        <h4>Flower</h4>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- End of Portfolio Item -->
+                        <!-- Portfolio Item -->
+                        <div class="grid-item creative grid-item-height" data-aos="fade-up">
+                            <div class="grid-item-wrapper">
+                                <img src="img/photo-2.jpg" alt="portfolio-img" class="portfolio-item">
+                                <div class="grid-info">
+                                    <div class="grid-link d-flex justify-content-center">
+                                        <a class="img-pop" data-rel="lightcase" href="img/photo-2.jpg" title="Tracy Portrait">
+                                            <span class="lnr lnr-move"></span>
+                                        </a>
+                                        <a class="ext-link" href="https://unsplash.com/" target="_blank">
+                                            <span class="lnr lnr-link"></span>
+                                        </a>
+                                    </div>
+                                    <div class="grid-title">
+                                        <h4>Breakfast</h4>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- End of Portfolio Item -->
+                        <!-- Portfolio Item -->
+                        <div class="grid-item creative" data-aos="fade-up">
+                            <div class="grid-item-wrapper">
+                                <img src="img/photo-7.jpg" alt="portfolio-img" class="portfolio-item">
+                                <div class="grid-info">
+                                    <div class="grid-link d-flex justify-content-center">
+                                        <a class="img-pop" data-rel="lightcase" href="img/photo-7.jpg" title="Guitar">
+                                            <span class="lnr lnr-move"></span>
+                                        </a>
+                                        <a class="ext-link" href="https://unsplash.com/" target="_blank">
+                                            <span class="lnr lnr-link"></span>
+                                        </a>
+                                    </div>
+                                    <div class="grid-title">
+                                        <h4>Chair</h4>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- End of Portfolio Item -->
+                        <!-- Portfolio Item -->
+                        <div class="grid-item vintage" data-aos="fade-up">
+                            <div class="grid-item-wrapper">
+                                <img src="img/photo-4.jpg" alt="portfolio-img" class="portfolio-item">
+                                <div class="grid-info">
+                                    <div class="grid-link d-flex justify-content-center">
+                                        <a class="img-pop" data-rel="lightcase" href="img/photo-4.jpg" title="Bookself">
+                                            <span class="lnr lnr-move"></span>
+                                        </a>
+                                        <a class="ext-link" href="https://unsplash.com/" target="_blank">
+                                            <span class="lnr lnr-link"></span>
+                                        </a>
+                                    </div>
+                                    <div class="grid-title">
+                                        <h4>Hidden Book</h4>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- End of Portfolio Item -->
+                        <!-- Portfolio Item -->
+                        <div class="grid-item creative" data-aos="fade-up">
+                            <div class="grid-item-wrapper">
+                                <img src="img/photo-9.jpg" alt="portfolio-img" class="portfolio-item">
+                                <div class="grid-info">
+                                    <div class="grid-link d-flex justify-content-center">
+                                        <a class="img-pop" data-rel="lightcase" href="img/photo-9.jpg" title="Guitar">
+                                            <span class="lnr lnr-move"></span>
+                                        </a>
+                                        <a class="ext-link" href="https://unsplash.com/" target="_blank">
+                                            <span class="lnr lnr-link"></span>
+                                        </a>
+                                    </div>
+                                    <div class="grid-title">
+                                        <h4>Red</h4>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- End of Portfolio Item -->
+                    </div>
+                    <!-- End of Portfolio Content -->
+                </div>
+                <!-- End of Portfolio Holder -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End of Portfolio Section -->	<!-- Client Section -->
+<section id="client" class="overlay bg-fixed" style="background-image: url(img/bg.jpg);">
+    <div class="container">
+        <div class="section-content" data-aos="fade-up">
+            <div class="row ">
+                <div class="col-md-12">
+                    <!-- Section Title -->
+                    <div class="title-wrap mb-5">
+                        <h2>Who love to <span> work</span> with us</h2>
+                    </div>
+                    <!-- End of Section Title -->
+                </div>
+                <!-- Client Holder -->
+                <div class="col-md-12 client-holder">
+                    <div class="client-slider owl-carousel">
+                        <div class="client-item">
+                            <img class="img-responsive" src="img/client.png" alt=" ">
+                        </div>
+                        <div class="client-item">
+                            <img class="img-responsive" src="img/client.png" alt=" ">
+                        </div>
+                        <div class="client-item">
+                            <img class="img-responsive" src="img/client.png" alt=" ">
+                        </div>
+                        <div class="client-item">
+                            <img class="img-responsive" src="img/client.png" alt=" ">
+                        </div>
+                        <div class="client-item">
+                            <img class="img-responsive" src="img/client.png" alt=" ">
+                        </div>
+                        <div class="client-item">
+                            <img class="img-responsive" src="img/client.png" alt=" ">
+                        </div>
+                    </div>
+                    <!-- End of Client Holder -->
+                </div>
+            </div>
+        </div>
+</section>
+<!-- End of Client Section -->	<!-- Reservation Section -->
+<section id="reservation" class="bg-white section-content">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-5 offset-lg-1 mb-5 mb-lg-0" data-aos="fade-right">
+                <div class="bg-white p-5 shadow">
+                    <div class="heading-section text-center">
+                        <h2 class="mb-4">
+                            Contact Us
+                        </h2>
+                    </div>
+                    <form method="post" name="contact-us" action="">
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input type="number" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Phone">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input type="text" class="form-control" id="websiteUrl" name="websiteUrl" placeholder="Website">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <textarea class="form-control" id="message" name="message" rows="6" placeholder="Your Message ..."></textarea>
+                            </div>
+                            <div class="col-md-12 text-center">
+                                <button class="btn btn-primary btn-shadow btn-lg" type="submit" name="submit">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-4 offset-lg-1" data-aos="fade-left">
+                <h2 class="mb-4">
+                    Best solution to create any website. Pay once.
+                </h2>
+                <p class="mb-4">I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+
+                <ul class="list-inline py-2">
+                    <li class="list-inline-item text-center">
+                        <span class="lnr fs-40 lnr-rocket"></span>
+                        <p>Fast delivery</p>
+                    </li>
+                    <li class="list-inline-item text-center">
+                        <span class="lnr fs-40 lnr-magic-wand"></span>
+                        <p>Awesome design</p>
+                    </li>
+                    <li class="list-inline-item text-center">
+                        <span class="lnr fs-40 lnr-cog"></span>
+                        <p>Easy to customize</p>
+                    </li>
+                </ul>
+
+                <a href="#" class="btn btn-link p-0">
+                    <span>PURCHASE NOW</span>
+                    <span class="lnr lnr-arrow-right"></span>
+                </a>
+            </div>
+        </div>
+        
+    </div>
+</section>
+<!-- End of Reservation Section -->	<!-- Features Section-->
+<section id="cta" class="bg-fixed overlay" style="background-image: url(img/bg.jpg);">
+    <div class="container">
+        <div class="section-content" data-aos="fade-up">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2 class="mb-2">Make a beautiful website, or million of them</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, veritatis qui eligendi delectus quia fuga!</p>
+                    <a class="btn btn-outline-primary btn-lg">FEATURES</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End of Features Section--></div>
+<footer class="mastfoot my-3">
+    <div class="inner container">
+         <div class="row">
+         	<div class="col-lg-4 col-md-12 d-flex align-items-center">
+         		
+         	</div>
+         	<div class="col-lg-4 col-md-12 d-flex align-items-center">
+         		<p class="mx-auto text-center mb-0">&copy; 2019 Roxy. Design by <a href="https://gettemplates.co" target="_blank">GetTemplates</a>.</p>
+         	</div>
+           
+            <div class="col-lg-4 col-md-12">
+            	<nav class="nav nav-mastfoot justify-content-center">
+	                <a class="nav-link" href="#">
+	                	<i class="fab fa-facebook-f"></i>
+	                </a>
+	                <a class="nav-link" href="#">
+	                	<i class="fab fa-twitter"></i>
+	                </a>
+	                <a class="nav-link" href="#">
+	                	<i class="fab fa-instagram"></i>
+	                </a>
+	                <a class="nav-link" href="#">
+	                	<i class="fab fa-linkedin"></i>
+	                </a>
+	                <a class="nav-link" href="#">
+	                	<i class="fab fa-youtube"></i>
+	                </a>
+	            </nav>
+            </div>
+            
+        </div>
+    </div>
+</footer>	<!-- External JS -->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+	<script src="vendor/bootstrap/popper.min.js"></script>
+	<script src="vendor/bootstrap/bootstrap.min.js"></script>
+	<script src="vendor/select2/select2.min.js "></script>
+	<script src="vendor/owlcarousel/owl.carousel.min.js"></script>
+	<script src="vendor/stellar/jquery.stellar.js" type="text/javascript" charset="utf-8"></script>
+	<script src="vendor/isotope/isotope.min.js"></script>
+	<script src="vendor/lightcase/lightcase.js"></script>
+	<script src="vendor/waypoints/waypoint.min.js"></script>
+	 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+	 
+	<!-- Main JS -->
+	<script src="js/app.min.js "></script>
+	<script src="//localhost:35729/livereload.js"></script>
+
+  <!-- LOGOUT CODE -->
+  <form id='logout' method='post' action="">
             <input type="submit" value="Logout" name="but_logout">
         </form>
-  </header>
-
-  <!-- About Section -->
-  <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
-    <h2 class="w3-text-light-grey">My Name</h2>
-    <hr style="width:200px" class="w3-opacity">
-    <p>Some text about me. Some text about me. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
-      adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    </p>
-    <h3 class="w3-padding-16 w3-text-light-grey">My Skills</h3>
-    <p class="w3-wide">Photography</p>
-    <div class="w3-white">
-      <div class="w3-dark-grey" style="height:28px;width:95%"></div>
-    </div>
-    <p class="w3-wide">Web Design</p>
-    <div class="w3-white">
-      <div class="w3-dark-grey" style="height:28px;width:85%"></div>
-    </div>
-    <p class="w3-wide">Photoshop</p>
-    <div class="w3-white">
-      <div class="w3-dark-grey" style="height:28px;width:80%"></div>
-    </div><br>
-    
-    <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
-      <div class="w3-quarter w3-section">
-        <span class="w3-xlarge">11+</span><br>
-        Partners
-      </div>
-      <div class="w3-quarter w3-section">
-        <span class="w3-xlarge">55+</span><br>
-        Projects Done
-      </div>
-      <div class="w3-quarter w3-section">
-        <span class="w3-xlarge">89+</span><br>
-        Happy Clients
-      </div>
-      <div class="w3-quarter w3-section">
-        <span class="w3-xlarge">150+</span><br>
-        Meetings
-      </div>
-    </div>
-
-    <button class="w3-button w3-light-grey w3-padding-large w3-section">
-      <i class="fa fa-download"></i> Download Resume
-    </button>
-    
-    <!-- Grid for pricing tables -->
-    <h3 class="w3-padding-16 w3-text-light-grey">My Price</h3>
-    <div class="w3-row-padding" style="margin:0 -16px">
-      <div class="w3-half w3-margin-bottom">
-        <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
-          <li class="w3-dark-grey w3-xlarge w3-padding-32">Basic</li>
-          <li class="w3-padding-16">Web Design</li>
-          <li class="w3-padding-16">Photography</li>
-          <li class="w3-padding-16">5GB Storage</li>
-          <li class="w3-padding-16">Mail Support</li>
-          <li class="w3-padding-16">
-            <h2>$ 10</h2>
-            <span class="w3-opacity">per month</span>
-          </li>
-          <li class="w3-light-grey w3-padding-24">
-            <button class="w3-button w3-white w3-padding-large w3-hover-black">Sign Up</button>
-          </li>
-        </ul>
-      </div>
-
-      <div class="w3-half">
-        <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
-          <li class="w3-dark-grey w3-xlarge w3-padding-32">Pro</li>
-          <li class="w3-padding-16">Web Design</li>
-          <li class="w3-padding-16">Photography</li>
-          <li class="w3-padding-16">50GB Storage</li>
-          <li class="w3-padding-16">Endless Support</li>
-          <li class="w3-padding-16">
-            <h2>$ 25</h2>
-            <span class="w3-opacity">per month</span>
-          </li>
-          <li class="w3-light-grey w3-padding-24">
-            <button class="w3-button w3-white w3-padding-large w3-hover-black">Sign Up</button>
-          </li>
-        </ul>
-      </div>
-    <!-- End Grid/Pricing tables -->
-    </div>
-    
-    <!-- Testimonials -->
-    <h3 class="w3-padding-24 w3-text-light-grey">My Reputation</h3>  
-    <img src="/w3images/bandmember.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
-    <p><span class="w3-large w3-margin-right">Chris Fox.</span> CEO at Mighty Schools.</p>
-    <p>John Doe saved us from a web disaster.</p><br>
-    
-    <img src="/w3images/avatar_g2.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
-    <p><span class="w3-large w3-margin-right">Rebecca Flex.</span> CEO at Company.</p>
-    <p>No one is better than John Doe.</p>
-  <!-- End About Section -->
-  </div>
-  
-  <!-- Portfolio Section -->
-  <div class="w3-padding-64 w3-content" id="photos">
-    <h2 class="w3-text-light-grey">My Photos</h2>
-    <hr style="width:200px" class="w3-opacity">
-
-    <!-- Grid for photos -->
-    <div class="w3-row-padding" style="margin:0 -16px">
-      <div class="w3-half">
-        <img src="/w3images/wedding.jpg" style="width:100%">
-        <img src="/w3images/rocks.jpg" style="width:100%">
-        <img src="/w3images/sailboat.jpg" style="width:100%">
-      </div>
-
-      <div class="w3-half">
-        <img src="/w3images/underwater.jpg" style="width:100%">
-        <img src="/w3images/chef.jpg" style="width:100%">
-        <img src="/w3images/wedding.jpg" style="width:100%">
-        <img src="/w3images/p6.jpg" style="width:100%">
-      </div>
-    <!-- End photo grid -->
-    </div>
-  <!-- End Portfolio Section -->
-  </div>
-
-  <!-- Contact Section -->
-  <div class="w3-padding-64 w3-content w3-text-grey" id="contact">
-    <h2 class="w3-text-light-grey">Contact Me</h2>
-    <hr style="width:200px" class="w3-opacity">
-
-    <div class="w3-section">
-      <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Chicago, US</p>
-      <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Phone: +00 151515</p>
-      <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: mail@mail.com</p>
-    </div><br>
-    <p>Let's get in touch. Send me a message:</p>
-
-    <form action="/action_page.php" target="_blank">
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name"></p>
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="Email" required name="Email"></p>
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="Subject" required name="Subject"></p>
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="Message" required name="Message"></p>
-      <p>
-        <button class="w3-button w3-light-grey w3-padding-large" type="submit">
-          <i class="fa fa-paper-plane"></i> SEND MESSAGE
-        </button>
-      </p>
-    </form>
-  <!-- End Contact Section -->
-  </div>
-  
-    <!-- Footer -->
-  <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
-    <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p>
-  <!-- End footer -->
-  </footer>
-
-<!-- END PAGE CONTENT -->
-</div>
-
 </body>
 </html>
