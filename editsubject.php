@@ -14,13 +14,13 @@ if(isset($_POST['but_logout'])){
 }
 if(isset($_POST['search_ce'])){
     $cid1 = $_POST['cid'];
-    header('Location: editcourse.php?cid='."$cid1");
+    header('Location: editsubject.php?cid='."$cid1");
     $DisplayForm = False;
 }
 $id=$_GET['cid'];
 /*--=========================DB==============================*/ 
     $db= $con;
-    $tableName="tbl_course";
+    $tableName="subject";
     $columns= ['*'];
     $fetchData = fetch_data($db, $tableName, $columns, $id);
     function fetch_data($db, $tableName, $columns, $id){
@@ -32,15 +32,16 @@ $id=$_GET['cid'];
        $msg= "Table Name is empty";
     }else{
     $columnName = implode(", ", $columns);
-    $query = "SELECT * FROM tbl_course WHERE cid= $id";
+    $query = "SELECT * FROM subject WHERE cid= $id";
     $result = $db->query($query);
     if($result== true){ 
      if ($result->num_rows > 0) {
         $row= mysqli_fetch_all($result, MYSQLI_ASSOC);
         $msg= $row;
      } else {
-        $msg= "No Data Found"; 
-        phpAlert(   "Invalid CID! Please Enter a Valid CID or Create a New Course"   );
+        $msg= "No Data Found";
+        phpAlert(   "No Data Found! Please Enter Valid CID From View Subjects Table"   ); 
+
      }
     }else{
       $msg= mysqli_error($db);
@@ -53,21 +54,26 @@ $id=$_GET['cid'];
      if(isset($_POST['submit'])){
         
         $db= $con;
-        $cshort = $_POST['course-short'];
-            $cfull = $_POST['course-full'];
-            $cdate = $_POST['udate'];
-
-
-            $sql = "UPDATE tbl_course ". "SET cshort ='$cshort', cfull='$cfull', cdate='$cdate' ". 
+        $subj1 = $_POST['subject1'];
+        $subj2 = $_POST['subject2'];
+        $subj3 = $_POST['subject3'];
+        $subj4 = $_POST['subject4'];
+        $subj5 = $_POST['subject5'];
+        $subj6 = $_POST['subject6'];
+        $subj7 = $_POST['subject7'];
+        $update = $_POST['udate'];
+              
+               $sql = "UPDATE subject ". "SET sub1 ='$subj1', sub2='$subj2', sub3='$subj3', sub4='$subj4', sub5='$subj5', sub6='$subj6', sub7='$subj7', sdate='$update' ". 
                "WHERE cid ='$id'" ;
                $result = $db->query($sql);
-            
                if($result== true){ 
-                header('Location: viewcourse.php');
+                header('Location: viewsubject.php');
+
                }else{
-                header('Location: editcourse.php');
-               }
-               }
+                header('Location: editsubject.php');
+                $msg= mysqli_error($db);
+        
+               }}
         
    
    /*--=========================UPDATE DB==============================*/
@@ -79,6 +85,7 @@ function phpAlert($msg) {
 }
 ?>
 <!--=========================ALERT BOX FUNCTION==============================-->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -90,7 +97,7 @@ function phpAlert($msg) {
     -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SIMS | Edit Course</title>
+    <title>SIMS | Edit Subject</title>
     <meta name="description" content="Roxy">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -125,7 +132,7 @@ function phpAlert($msg) {
                 <br>
                 <br>
                 <br>
-                <h2 class="section-title"><b>Edit Course</b></h2>    
+                <h2 class="section-title"><b>Edit Subject</b></h2>    
             </div>
             
             <div class="panel-body">
@@ -136,7 +143,8 @@ function phpAlert($msg) {
     ?>
 
 <div class="col-md-8 offset-md-2 contact-form-holder mt-4" data-aos="fade-up">
-<form method="post" name="course-cid" action="">
+    <!--=========================FORM1 FOR CID==============================-->
+<form method="post" name="course-cid" class="text-center" action="">
                         <div class="row">
                         <div class="col-md-12">
 					 <label>Enter CID<span id="" style="font-size:11px;color:red">*</span>	</label>
@@ -149,22 +157,69 @@ function phpAlert($msg) {
             </div>
             </div>
             
-            </form>
-
-                    <form method="post" name="course-edit" action="">
+            </form><br><br><br>
+   <!--=========================FORM1 FOR CID==============================-->
+      <!--=========================FORM2 FOR UPDATE==============================-->
+                    <form method="post" name="subject-edit" action="">
                         <div class="row">
-                        <div class="col-md-12">
-					 <label>Course Short Name<span id="" style="font-size:11px;color:red">*</span>	</label>
-											</div>
-                            <div class="col-md-12 form-group">
-                                <input type="text" name="course-short" id="cshort"  value="<?php echo $data['cshort']??''; ?>" required="required" >
-                            </div>
+                        
                             <div class="col-md-12 ">
-		<label>Course Full Name<span id="" style="font-size:11px;color:red">*</span></label>
+		<label>Course Full Name<span id=""  style="font-size:11px;color:red">*</span></label>
 		</div>
                             <div class="col-md-6 form-group">
-                                <input type="text" name="course-full" id="cfull" value="<?php echo $data['cfull']??''; ?>" required="required" >
-                            </div>
+                                <input type="text" name="cfull" id="cfull" size="50" value="<?php echo $data['cfull']??''; ?>" readonly="readonly" required="required" >
+ </div>
+
+ <div class="col-md-12 ">
+		<label>Subject 1</label>
+		</div>
+                            <div class="col-md-6 form-group">
+                                <input type="text" name="subject1" id="subject1" size="50" value="<?php echo $data['sub1']??''; ?>" >
+ </div>
+
+ <div class="col-md-12 ">
+		<label>Subject 2</label>
+		</div>
+                            <div class="col-md-6 form-group">
+                                <input type="text" name="subject2" id="subject2" size="50" value="<?php echo $data['sub2']??''; ?>" >
+ </div>
+ 
+ <div class="col-md-12 ">
+		<label>Subject 3</label>
+		</div>
+                            <div class="col-md-6 form-group">
+                                <input type="text" name="subject3" id="subject3" size="50" value="<?php echo $data['sub3']??''; ?>" >
+ </div>
+
+ <div class="col-md-12 ">
+		<label>Subject 4</label>
+		</div>
+                            <div class="col-md-6 form-group">
+                                <input type="text" name="subject4" id="subject4" size="50" value="<?php echo $data['sub4']??''; ?>" >
+ </div>
+
+ <div class="col-md-12 ">
+		<label>Subject 5</label>
+		</div>
+                            <div class="col-md-6 form-group">
+                                <input type="text" name="subject5" id="subject5" size="50" value="<?php echo $data['sub5']??''; ?>" >
+ </div>
+
+ <div class="col-md-12 ">
+		<label>Subject 6</label>
+		</div>
+                            <div class="col-md-6 form-group">
+                                <input type="text" name="subject6" id="subject6" size="50" value="<?php echo $data['sub6']??''; ?>" >
+ </div>
+
+ <div class="col-md-12 ">
+		<label>Subject 7</label>
+		</div>
+                            <div class="col-md-6 form-group">
+                                <input type="text" name="subject7" id="subject7" size="50" value="<?php echo $data['sub7']??''; ?>" >
+ </div>
+
+                            
                             <div class="col-md-12">
 	 <label>Date</label>
 	</div>
@@ -173,13 +228,14 @@ function phpAlert($msg) {
                             </div>
                             
                             <div class="col-md-12 text-center">
-                                <button class="btn btn-primary btn-shadow btn-lg" type="submit" name="submit">Update Course</button>
-                                <a href="viewcourse.php">
+                                <button class="btn btn-primary btn-shadow btn-lg" type="submit" name="submit">Update Subjects</button>
+                                <a href="viewsubject.php">
    <input type="button"class="btn btn-outline-primary btn-shadow btn-lg" value="Cancel" />
                             </div>
             </div>
                         
                     </form>
+                     <!--=========================FORM2 FOR UPDATE==============================-->
 </div>		
 													
 				</div>

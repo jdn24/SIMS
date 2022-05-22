@@ -12,73 +12,30 @@ if(isset($_POST['but_logout'])){
     session_destroy();
     header('Location: index.php');
 }
-if(isset($_POST['search_ce'])){
-    $cid1 = $_POST['cid'];
-    header('Location: editcourse.php?cid='."$cid1");
-    $DisplayForm = False;
-}
-$id=$_GET['cid'];
-/*--=========================DB==============================*/ 
-    $db= $con;
-    $tableName="tbl_course";
-    $columns= ['*'];
-    $fetchData = fetch_data($db, $tableName, $columns, $id);
-    function fetch_data($db, $tableName, $columns, $id){
-     if(empty($db)){
-      $msg= "Database connection error";
-     }elseif (empty($columns) || !is_array($columns)) {
-      $msg="columns Name must be defined in an indexed array";
-     }elseif(empty($tableName)){
-       $msg= "Table Name is empty";
-    }else{
-    $columnName = implode(", ", $columns);
-    $query = "SELECT * FROM tbl_course WHERE cid= $id";
-    $result = $db->query($query);
-    if($result== true){ 
-     if ($result->num_rows > 0) {
-        $row= mysqli_fetch_all($result, MYSQLI_ASSOC);
-        $msg= $row;
-     } else {
-        $msg= "No Data Found"; 
-        phpAlert(   "Invalid CID! Please Enter a Valid CID or Create a New Course"   );
-     }
-    }else{
-      $msg= mysqli_error($db);
-    }
-    }
-    return $msg;
-    }
-     /*--=========================DB==============================*/ 
-/*--=========================UPDATE DB==============================*/
-     if(isset($_POST['submit'])){
+
+
+/*--=========================DELETE DB==============================*/
+     if(isset($_POST['delete_cid'])){
         
         $db= $con;
-        $cshort = $_POST['course-short'];
-            $cfull = $_POST['course-full'];
-            $cdate = $_POST['udate'];
+        $id = $_POST['cid'];
+           
 
 
-            $sql = "UPDATE tbl_course ". "SET cshort ='$cshort', cfull='$cfull', cdate='$cdate' ". 
+            $sql = "delete from subject ". 
                "WHERE cid ='$id'" ;
                $result = $db->query($sql);
             
                if($result== true){ 
-                header('Location: viewcourse.php');
+                header('Location: viewsubject.php');
                }else{
-                header('Location: editcourse.php');
+                header('Location: deletesubject.php');
                }
                }
         
    
    /*--=========================UPDATE DB==============================*/
 ?>
-<!--=========================ALERT BOX FUNCTION==============================-->
-<?php
-function phpAlert($msg) {
-    echo '<script type="text/javascript">alert("' . $msg . '")</script>';
-}
-?>
-<!--=========================ALERT BOX FUNCTION==============================-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -90,7 +47,7 @@ function phpAlert($msg) {
     -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SIMS | Edit Course</title>
+    <title>SIMS | Delete Subjects</title>
     <meta name="description" content="Roxy">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -125,7 +82,7 @@ function phpAlert($msg) {
                 <br>
                 <br>
                 <br>
-                <h2 class="section-title"><b>Edit Course</b></h2>    
+                <h2 class="section-title"><b>Delete Subject</b></h2>    
             </div>
             
             <div class="panel-body">
@@ -135,51 +92,24 @@ function phpAlert($msg) {
       foreach($fetchData as $data)
     ?>
 
-<div class="col-md-8 offset-md-2 contact-form-holder mt-4" data-aos="fade-up">
+<div class="section-content col-md-8 offset-md-2 contact-form-holder mt-4 text-center" data-aos="fade-up">
 <form method="post" name="course-cid" action="">
                         <div class="row">
                         <div class="col-md-12">
-					 <label>Enter CID<span id="" style="font-size:11px;color:red">*</span>	</label>
+					 <label>Enter Course ID<span id="" style="font-size:11px;color:red">*</span>	</label>
 											</div>
                             <div class="col-md-12 form-group">
                                 <input type="text" name="cid" id="cid" value="<?php echo $data['cid']??''; ?>" placeholder="Enter Course ID" required="required" >
                             </div>
                             <div class="col-md-12 text-center">
-                                <button class="btn btn-primary btn-shadow btn-lg" type="submit" name="search_ce">Search Course</button>
+                                <button class="btn btn-primary btn-shadow btn-lg" type="submit" name="delete_cid">Delete Subjects</button>
+                                <a href="viewsubject.php">
+   <input type="button"class="btn btn-outline-primary btn-shadow" value="Cancel" />
+</a>  
             </div>
             </div>
             
             </form>
-
-                    <form method="post" name="course-edit" action="">
-                        <div class="row">
-                        <div class="col-md-12">
-					 <label>Course Short Name<span id="" style="font-size:11px;color:red">*</span>	</label>
-											</div>
-                            <div class="col-md-12 form-group">
-                                <input type="text" name="course-short" id="cshort"  value="<?php echo $data['cshort']??''; ?>" required="required" >
-                            </div>
-                            <div class="col-md-12 ">
-		<label>Course Full Name<span id="" style="font-size:11px;color:red">*</span></label>
-		</div>
-                            <div class="col-md-6 form-group">
-                                <input type="text" name="course-full" id="cfull" value="<?php echo $data['cfull']??''; ?>" required="required" >
-                            </div>
-                            <div class="col-md-12">
-	 <label>Date</label>
-	</div>
-                            <div class="col-md-6 form-group">
-                                <input type="text" value="<?php echo date('d-m-Y');?>" readonly="readonly" name="udate">
-                            </div>
-                            
-                            <div class="col-md-12 text-center">
-                                <button class="btn btn-primary btn-shadow btn-lg" type="submit" name="submit">Update Course</button>
-                                <a href="viewcourse.php">
-   <input type="button"class="btn btn-outline-primary btn-shadow btn-lg" value="Cancel" />
-                            </div>
-            </div>
-                        
-                    </form>
 </div>		
 													
 				</div>
@@ -187,8 +117,8 @@ function phpAlert($msg) {
 					</div>
             <!-- /.row -->
         </div>
-    
-</section>		
+    </div>
+</section>		</div>
 <!--=========================FOOTER==============================-->
 <?php include 'footer.php';?>
 <!--=========================FOOTER==============================-->
