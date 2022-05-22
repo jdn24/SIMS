@@ -99,7 +99,7 @@ if(isset($_POST['but_logout'])){
 					 <label>Enter Course ID<span id="" style="font-size:11px;color:red">*</span>	</label>
 											</div>
                             <div class="col-md-12 form-group">
-                                <input type="text" name="cid" id="cid" value="<?php echo $data['cid']??''; ?>" placeholder="Enter Course ID" required="required" >
+                                <input type="text" style="text-align:center"name="cid" id="cid" value="<?php echo $data['cid']??''; ?>" placeholder="Enter Course ID" required="required" >
                             </div>
                             <div class="col-md-12 text-center">
                                 <button class="btn btn-primary btn-shadow btn-lg" type="submit" name="delete_cid">Delete Subjects</button>

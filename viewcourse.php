@@ -157,6 +157,12 @@ function myFunction() {
             </div>
             <!-- /.row -->
              <!--=========================TABLE==============================-->
+             <!--=========================ADD SUBJECT BUTTON==============================-->
+             <div class="col-md-12 col-sm-12 text-center " data-aos="fade-up" data-aos-delay="200">
+                    
+                    <p><a class="btn btn-outline-primary" href="addcourse.php" role="button">Add Course</a></p>
+                </div>
+                <!--=========================ADD SUBJECT BUTTON==============================-->
         </div>
     </div>
 </section>		</div>

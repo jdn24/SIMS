@@ -156,7 +156,7 @@ function phpAlert($msg) {
 					 <label>Enter CID<span id="" style="font-size:11px;color:red">*</span>	</label>
 											</div>
                             <div class="col-md-12 form-group">
-                                <input type="text"size="6" name="cid" id="cid" value="<?php echo $data['cid']??''; ?>" placeholder="Enter Course ID" required="required" >
+                                <input type="text"size="8" name="cid" style="text-align:center" id="cid" value="<?php echo $data['cid']??''; ?>" placeholder="Course ID" required="required" >
                             </div>
                             <div class="col-md-12 text-center">
                                 <button class="btn btn-primary btn-shadow btn-lg" type="submit" name="search_ce">Search Course</button>
@@ -174,62 +174,62 @@ function phpAlert($msg) {
 					 <label>Course Short Name	</label>
 											</div>
                             <div class="col-md-6 form-group">
-                                <input type="text"size="50" value="<?php echo $data['cshort']??''; ?>" name="cshort" id="cshort" readonly="readonly" required="required" >
+                                <input type="text"size="50" style="text-align:center" value="<?php echo $data['cshort']??''; ?>" name="cshort" id="cshort" readonly="readonly" required="required" >
                             </div>
                             <div class="col-md-6">
 					 <label>Course Full Name	</label>
 											</div>
                             <div class="col-md-6 form-group">
-                                <input type="text"size="50" value="<?php echo $data['cfull']??''; ?>" name="cfull" id="cfull" readonly="readonly"  required="required" >
+                                <input type="text"size="50" style="text-align:center"value="<?php echo $data['cfull']??''; ?>" name="cfull" id="cfull" readonly="readonly"  required="required" >
                             </div>
 
                             <div class="col-md-6">
 					 <label>Enter Subject 1	</label>
 											</div>
                             <div class="col-md-6 form-group">
-                                <input type="text"size="50" name="subj1" id="subj1" value="" placeholder="Subject 1" >
+                                <input type="text"size="50" style="text-align:center"name="subj1" id="subj1" value="" placeholder="Subject 1" >
                             </div>       
                             <div class="col-md-6">
 					 <label>Enter Subject 2	</label>
 											</div>
                             <div class="col-md-6 form-group">
-                                <input type="text"size="50" name="subj2" id="subj2" value=""placeholder="Subject 2" >
+                                <input type="text"size="50" style="text-align:center"name="subj2" id="subj2" value=""placeholder="Subject 2" >
                             </div>   
                             <div class="col-md-6">
 					 <label>Enter Subject 3	</label>
 											</div>
                             <div class="col-md-6 form-group">
-                                <input type="text"size="50" name="subj3" id="subj3" value=""placeholder="Subject 3" >
+                                <input type="text"size="50" style="text-align:center"name="subj3" id="subj3" value=""placeholder="Subject 3" >
                             </div>   
                             <div class="col-md-6">
 					 <label>Enter Subject 4	</label>
 											</div>
                             <div class="col-md-6 form-group">
-                                <input type="text"size="50" name="subj4" id="subj4" value=""placeholder="Subject 4" >
+                                <input type="text"size="50"style="text-align:center" name="subj4" id="subj4" value=""placeholder="Subject 4" >
                             </div>   
                             <div class="col-md-6">
 					 <label>Enter Subject 5	</label>
 											</div>
                             <div class="col-md-6 form-group">
-                                <input type="text"size="50" name="subj5" id="subj5" value=""placeholder="Subject 5" >
+                                <input type="text"size="50" style="text-align:center"name="subj5" id="subj5" value=""placeholder="Subject 5" >
                             </div>   
                             <div class="col-md-6">
 					 <label>Enter Subject 6	</label>
 											</div>
                             <div class="col-md-6 form-group">
-                                <input type="text"size="50" name="subj6" id="subj6" value=""placeholder="Subject 6" >
+                                <input type="text"size="50" style="text-align:center"name="subj6" id="subj6" value=""placeholder="Subject 6" >
                             </div>   
                             <div class="col-md-6">
 					 <label>Enter Subject 7	</label>
 											</div>
                             <div class="col-md-6 form-group">
-                                <input type="text"size="50" name="subj7" id="subj7" value=""placeholder="Subject 7" >
+                                <input type="text"size="50"style="text-align:center" name="subj7" id="subj7" value=""placeholder="Subject 7" >
                             </div>   
                             <div class="col-md-6">
 	 <label>Date</label>
 	</div>
                             <div class="col-md-6 form-group">
-                                <input type="text"size="50" value="<?php echo date('d-m-Y');?>" readonly="readonly" name="udate">
+                                <input type="text"size="50" style="text-align:center"value="<?php echo date('d-m-Y');?>" readonly="readonly" name="udate">
                             </div>
                             
                             <div class="col-md-12 text-center">

@@ -77,10 +77,10 @@ if(isset($_POST['but_submit'])){
                     <div id="div_login" >
                         <div class="row">
                             <div class="col-md-12 form-group">
-                            <input type="text" class="textbox" id="txt_uname" name="txt_uname" placeholder="Username" />
+                            <input type="text" style="text-align:center"class="textbox" id="txt_uname" name="txt_uname" placeholder="Username" />
                             </div>
                             <div class="col-md-12 form-group">
-                            <input type="password" class="textbox" id="txt_uname" name="txt_pwd" placeholder="Password"/>
+                            <input type="password" style="text-align:center"class="textbox" id="txt_uname" name="txt_pwd" placeholder="Password"/>
                             </div>
                             <div class="col-md-12 text-center">
                                 <button class="btn btn-primary btn-shadow btn-lg" type="submit"  name="but_submit" id="but_submit">Submit</button>

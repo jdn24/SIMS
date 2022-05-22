@@ -12,42 +12,18 @@ if(isset($_POST['but_logout'])){
     session_destroy();
     header('Location: index.php');
 }
-
-
-/*--=========================DELETE DB==============================*/
-     if(isset($_POST['delete_cid'])){
-        
-        $db= $con;
-        $id = $_POST['cid'];
-           
-
-
-            $sql = "delete from tbl_course ". 
-               "WHERE cid ='$id'" ;
-               $result = $db->query($sql);
-            
-               if($result== true){ 
-                header('Location: viewcourse.php');
-               }else{
-                header('Location: deletecourse.php');
-               }
-               }
-        
-   
-   /*--=========================UPDATE DB==============================*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
     <!--
      - Roxy: Bootstrap template by GettTemplates.com
      - https://gettemplates.co/roxy
     -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SIMS | Delete Course</title>
+    <title>SIMS | Student Management</title>
     <meta name="description" content="Roxy">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -82,39 +58,30 @@ if(isset($_POST['but_logout'])){
                 <br>
                 <br>
                 <br>
-                <h2 class="section-title"><b>Delete Course</b></h2>    
+                <h2 class="section-title"><b><i><u>Student Management</u></i></b></h2>    
             </div>
             
-            <div class="panel-body">
-            <?php
-      if(is_array($fetchData))      
-      $sn=1;
-      foreach($fetchData as $data)
-    ?>
-
-<div class="section-content col-md-8 offset-md-2 contact-form-holder mt-4 text-center" data-aos="fade-up">
-<form method="post" name="course-cid" action="">
-                        <div class="row">
-                        <div class="col-md-12">
-					 <label>Enter CID<span id="" style="font-size:11px;color:red">*</span>	</label>
-											</div>
-                            <div class="col-md-12 form-group">
-                                <input type="text"style="text-align:center" name="cid" id="cid" value="<?php echo $data['cid']??''; ?>" placeholder="Enter Course ID" required="required" >
-                            </div>
-                            <div class="col-md-12 text-center">
-                                <button class="btn btn-primary btn-shadow btn-lg" type="submit" name="delete_cid">Delete Course</button>
-                                <a href="viewcourse.php">
-   <input type="button"class="btn btn-outline-primary btn-shadow" value="Cancel" />
-</a>  
-            </div>
-            </div>
+            <div class="row text-center section-content">
             
-            </form>
-</div>		
-													
-				</div>
-
-					</div>
+                <div class="col-md-4 col-sm-6" data-aos="fade-up">
+                    <img class="" src="img/studentview.png"  width="" height="">
+                    <h5 class="mb-4">View Students</h5>
+                    <p>See an Overview of Different Students enrolled & Delete or Edit Students Details.</p>
+                    <p><a class="btn btn-primary" href="viewsubject.php" role="button">View Subjects</a></p>
+                </div>
+                <!-- /.col-md-4 col-sm-6  -->
+                <div class="col-md-4 col-sm-6" data-aos="fade-up">
+</div>
+                <!-- /.col-md-4 col-sm-6  -->
+                <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+                    <img class="" src="img/studentedit.png"  width="" height="">
+                    <h5 class="mb-4">Add Students</h5>
+                    <p>Add New Students</p><br>
+                    <p><a class="btn btn-primary" href="addsubject.php" role="button">Add Subjects</a></p>
+                </div>
+                
+                <!-- /.col-md-4 col-sm-6  -->
+            </div>
             <!-- /.row -->
         </div>
     </div>

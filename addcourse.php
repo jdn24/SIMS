@@ -97,25 +97,25 @@ if(isset($_POST['but_logout'])){
 					 <label>Enter CID<span id="" style="font-size:11px;color:red">*</span>	</label>
 											</div>
                             <div class="col-md-6 form-group">
-                                <input type="text" name="cid" id="cid" value="<?php echo $data['cid']??''; ?>" placeholder="Enter Course ID" required="required" >
+                                <input type="text" style="text-align:center"name="cid" id="cid" value="<?php echo $data['cid']??''; ?>" placeholder="Enter Course ID" required="required" >
                             </div>
                             <div class="col-md-6">
 					 <label>Enter Course Short Name<span id="" style="font-size:11px;color:red">*</span>	</label>
 											</div>
                             <div class="col-md-6 form-group">
-                                <input type="text" name="cshort" id="cshort" placeholder="Enter Course Short Name" required="required" >
+                                <input type="text" style="text-align:center"name="cshort" id="cshort" placeholder="Enter Course Short Name" required="required" >
                             </div>
                             <div class="col-md-6">
 					 <label>Enter Course Full Name<span id="" style="font-size:11px;color:red">*</span>	</label>
 											</div>
                             <div class="col-md-6 form-group">
-                                <input type="text" name="cfull" id="cfull" placeholder="Enter Course Full Name" required="required" >
+                                <input type="text" style="text-align:center"name="cfull" id="cfull" placeholder="Enter Course Full Name" required="required" >
                             </div>
                             <div class="col-md-6">
 	 <label>Date</label>
 	</div>
                             <div class="col-md-6 form-group">
-                                <input type="text" value="<?php echo date('d-m-Y');?>" readonly="readonly" name="udate">
+                                <input type="text" style="text-align:center"value="<?php echo date('d-m-Y');?>" readonly="readonly" name="udate">
                             </div>
                             
                             <div class="col-md-12 text-center">

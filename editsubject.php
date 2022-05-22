@@ -150,7 +150,7 @@ function phpAlert($msg) {
 					 <label>Enter CID<span id="" style="font-size:11px;color:red">*</span>	</label>
 											</div>
                             <div class="col-md-12 form-group">
-                                <input type="text" name="cid" id="cid" value="<?php echo $data['cid']??''; ?>" placeholder="Enter Course ID" required="required" >
+                                <input type="text" name="cid" style="text-align:center"id="cid" value="<?php echo $data['cid']??''; ?>" placeholder="Enter Course ID" required="required" >
                             </div>
                             <div class="col-md-12 text-center">
                                 <button class="btn btn-primary btn-shadow btn-lg" type="submit" name="search_ce">Search Course</button>
@@ -167,56 +167,56 @@ function phpAlert($msg) {
 		<label>Course Full Name<span id=""  style="font-size:11px;color:red">*</span></label>
 		</div>
                             <div class="col-md-6 form-group">
-                                <input type="text" name="cfull" id="cfull" size="50" value="<?php echo $data['cfull']??''; ?>" readonly="readonly" required="required" >
+                                <input type="text" name="cfull"style="text-align:center" id="cfull" size="50" value="<?php echo $data['cfull']??''; ?>" readonly="readonly" required="required" >
  </div>
 
  <div class="col-md-12 ">
 		<label>Subject 1</label>
 		</div>
                             <div class="col-md-6 form-group">
-                                <input type="text" name="subject1" id="subject1" size="50" value="<?php echo $data['sub1']??''; ?>" >
+                                <input type="text" name="subject1"style="text-align:center" id="subject1" size="50" value="<?php echo $data['sub1']??''; ?>" >
  </div>
 
  <div class="col-md-12 ">
 		<label>Subject 2</label>
 		</div>
                             <div class="col-md-6 form-group">
-                                <input type="text" name="subject2" id="subject2" size="50" value="<?php echo $data['sub2']??''; ?>" >
+                                <input type="text" name="subject2" style="text-align:center"id="subject2" size="50" value="<?php echo $data['sub2']??''; ?>" >
  </div>
  
  <div class="col-md-12 ">
 		<label>Subject 3</label>
 		</div>
                             <div class="col-md-6 form-group">
-                                <input type="text" name="subject3" id="subject3" size="50" value="<?php echo $data['sub3']??''; ?>" >
+                                <input type="text" name="subject3" style="text-align:center"id="subject3" size="50" value="<?php echo $data['sub3']??''; ?>" >
  </div>
 
  <div class="col-md-12 ">
 		<label>Subject 4</label>
 		</div>
                             <div class="col-md-6 form-group">
-                                <input type="text" name="subject4" id="subject4" size="50" value="<?php echo $data['sub4']??''; ?>" >
+                                <input type="text" name="subject4" style="text-align:center"id="subject4" size="50" value="<?php echo $data['sub4']??''; ?>" >
  </div>
 
  <div class="col-md-12 ">
 		<label>Subject 5</label>
 		</div>
                             <div class="col-md-6 form-group">
-                                <input type="text" name="subject5" id="subject5" size="50" value="<?php echo $data['sub5']??''; ?>" >
+                                <input type="text" name="subject5" style="text-align:center"id="subject5" size="50" value="<?php echo $data['sub5']??''; ?>" >
  </div>
 
  <div class="col-md-12 ">
 		<label>Subject 6</label>
 		</div>
                             <div class="col-md-6 form-group">
-                                <input type="text" name="subject6" id="subject6" size="50" value="<?php echo $data['sub6']??''; ?>" >
+                                <input type="text" name="subject6" style="text-align:center"id="subject6" size="50" value="<?php echo $data['sub6']??''; ?>" >
  </div>
 
  <div class="col-md-12 ">
 		<label>Subject 7</label>
 		</div>
                             <div class="col-md-6 form-group">
-                                <input type="text" name="subject7" id="subject7" size="50" value="<?php echo $data['sub7']??''; ?>" >
+                                <input type="text" name="subject7"style="text-align:center" id="subject7" size="50" value="<?php echo $data['sub7']??''; ?>" >
  </div>
 
                             
@@ -224,7 +224,7 @@ function phpAlert($msg) {
 	 <label>Date</label>
 	</div>
                             <div class="col-md-6 form-group">
-                                <input type="text" value="<?php echo date('d-m-Y');?>" readonly="readonly" name="udate">
+                                <input type="text" style="text-align:center"value="<?php echo date('d-m-Y');?>" readonly="readonly" name="udate">
                             </div>
                             
                             <div class="col-md-12 text-center">

@@ -135,7 +135,7 @@ function phpAlert($msg) {
       foreach($fetchData as $data)
     ?>
 
-<div class="col-md-8 offset-md-2 contact-form-holder mt-4" data-aos="fade-up">
+<div class="col-md-8 offset-md-2 contact-form-holder mt-8" data-aos="fade-up">
 <form method="post" name="course-cid" action="">
                         <div class="row">
                         <div class="col-md-12">
