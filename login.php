@@ -24,7 +24,9 @@ if(isset($_POST['but_submit'])){
         }else{
             echo "Invalid username and password";
         }
-
+if($uname=="admin"){
+    $_SESSION['admin'] = $uname;
+}
     }
 
 }

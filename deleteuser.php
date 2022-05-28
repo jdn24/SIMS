@@ -3,27 +3,52 @@
 include "config/config.php";
 
 // Check user login or not
-if(!isset($_SESSION['logged'])){
-    header('Location: index.php');
-}
+if(!isset($_SESSION['admin'])){
+    echo "Login With Admin Credentials";
+    header('Location: dashboard.php');}
+
 
 // logout
 if(isset($_POST['but_logout'])){
     session_destroy();
     header('Location: index.php');
 }
+
+
+/*--=========================DELETE DB==============================*/
+     if(isset($_POST['delete_id'])){
+        
+        $db= $con;
+        $id = $_POST['id'];
+           
+
+
+            $sql = "delete from users ". 
+               "WHERE id ='$id'" ;
+               $result = $db->query($sql);
+            
+               if($result== true){ 
+                header('Location: viewuser.php');
+               }else{
+                header('Location: deleteuser.php');
+               }
+               }
+        
+   
+   /*--=========================UPDATE DB==============================*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
     <!--
      - Roxy: Bootstrap template by GettTemplates.com
      - https://gettemplates.co/roxy
     -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SIMS | Student Management</title>
+    <title>SIMS | Delete User</title>
     <meta name="description" content="Roxy">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -58,30 +83,39 @@ if(isset($_POST['but_logout'])){
                 <br>
                 <br>
                 <br>
-                <h2 class="display-4 mb-4 "><b>Student Management</b></h2>    
+                <h2 class="section-title"><b>Delete User</b></h2>    
             </div>
             
-            <div class="row text-center section-content">
-            
-                <div class="col-md-4 col-sm-6" data-aos="fade-up">
-                    <img class="" src="img/studentview.png"  width="" height="">
-                    <h5 class="mb-4">View Students</h5>
-                    <p>See an Overview of Different Students enrolled & Delete or Edit Students Details.</p>
-                    <p><a class="btn btn-primary" href="viewstudent.php" role="button">View Students</a></p>
-                </div>
-                <!-- /.col-md-4 col-sm-6  -->
-                <div class="col-md-4 col-sm-6" data-aos="fade-up">
-</div>
-                <!-- /.col-md-4 col-sm-6  -->
-                <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
-                    <img class="" src="img/studentedit.png"  width="" height="">
-                    <h5 class="mb-4">Add Students</h5>
-                    <p>Add New Student and their Details</p><br>
-                    <p><a class="btn btn-primary" href="addstudent.php" role="button">Add Student</a></p>
-                </div>
-                
-                <!-- /.col-md-4 col-sm-6  -->
+            <div class="panel-body">
+            <?php
+      if(is_array($fetchData))      
+      $sn=1;
+      foreach($fetchData as $data)
+    ?>
+
+<div class="section-content col-md-8 offset-md-2 contact-form-holder mt-4 text-center" data-aos="fade-up">
+<form method="post" name="user-id" action="">
+                        <div class="row">
+                        <div class="col-md-12">
+					 <label>Enter ID<span id="" style="font-size:11px;color:red">*</span>	</label>
+											</div>
+                            <div class="col-md-12 form-group">
+                                <input type="text"style="text-align:center" name="id" id="id" value="<?php echo $data['id']??''; ?>" placeholder="Enter User ID" required="required" >
+                            </div>
+                            <div class="col-md-12 text-center">
+                                <button class="btn btn-primary btn-shadow btn-lg" type="submit" name="delete_id">Delete User</button>
+                                <a href="viewuser.php">
+   <input type="button"class="btn btn-outline-primary btn-shadow" value="Cancel" />
+</a>  
             </div>
+            </div>
+            
+            </form>
+</div>		
+													
+				</div>
+
+					</div>
             <!-- /.row -->
         </div>
     </div>

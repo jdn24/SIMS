@@ -6,10 +6,19 @@
 include "config/config.php";
 
 // Check user login or not
-if(!isset($_SESSION['logged'])){
+if(!isset($_SESSION['admin'])){
+    echo "Login With Admin Credentials";
+    header('Location: dashboard.php');}
+
+
+
+
+
+// logout
+if(isset($_POST['but_logout'])){
+    session_destroy();
     header('Location: index.php');
 }
-
 ?>
 
 <!DOCTYPE html>
