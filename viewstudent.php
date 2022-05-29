@@ -14,7 +14,7 @@ if(isset($_POST['but_logout'])){
 
     /*--=========================DB==============================*/ 
     $db= $con;
-    $tableName="subject";
+    $tableName="registration";
     $columns= ['*'];
     $fetchData = fetch_data($db, $tableName, $columns);
     function fetch_data($db, $tableName, $columns){
@@ -26,7 +26,7 @@ if(isset($_POST['but_logout'])){
        $msg= "Table Name is empty";
     }else{
     $columnName = implode(", ", $columns);
-    $query = "SELECT ".$columnName." FROM $tableName"." ORDER BY cid";
+    $query = "SELECT ".$columnName." FROM $tableName"." ORDER BY id";
     $result = $db->query($query);
     if($result== true){ 
      if ($result->num_rows > 0) {
@@ -47,21 +47,14 @@ if(isset($_POST['but_logout'])){
 <html lang="en">
 
 <head>
-<script>
-function myFunction() {
-  let ccid = prompt("Please enter your CID");
-  if (ccid != null) {
-    
-  }
-}
-</script>
+
     <!--
      - Roxy: Bootstrap template by GettTemplates.com
      - https://gettemplates.co/roxy
     -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SIMS | View Subjects</title>
+    <title>SIMS | View Student</title>
     <meta name="description" content="Roxy">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -91,17 +84,17 @@ function myFunction() {
 <!--=========================HEADER==============================-->
 
 	<section id="who-we-are" class="overlay text-white">
-    <div class="">
+    <div class="container">
         <div class="section-content">
             <div class="col text-center" data-aos="fade-up">
                 <br>
                 <br>
                 <br>
-                <h2 class="section-title"><b>View Subjects</b></h2>    
+                <h2 class="section-title"><b>View Students</b></h2>    
             </div>
  <!--=========================TABLE==============================-->           
             <div class="row" data-aos="fade-up">
-                <div class="col-md-8 offset-md-1">
+                <div class="col-lg-12">
                     <div class="panel panel-default">
                         
                         <div class="panel-body">
@@ -109,18 +102,15 @@ function myFunction() {
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>Course ID</th>
-                                            <th>Course Short Name</th>
-                                            <th>Course Full Name</th>
-                                            <th>Subject 1</th>
-                                            <th>Subject 2</th>
-                                            <th>Subject 3</th>
-                                            <th>Subject 4</th>
-                                            <th>Subject 5</th>
-                                            <th>Subject 6</th>
-                                            <th>Subject 7</th>
-                                            <th>Created Date</th>
+                                            <th>Student ID</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Course Name</th>
+                                            <th>Nationality</th>
+                                            <th>Mobile No</th>
+                                            <th>Registration Date</th>
                                             <th>Action</th>
+
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -132,19 +122,15 @@ function myFunction() {
           
     ?>
     <tr>
-      <td><?php echo $data['cid']??''; ?></td>
-      <td><?php echo $data['cshort']??''; ?></td>
-      <td><?php echo $data['cfull']??''; ?></td>
-      <td><?php echo $data['sub1']??''; ?></td>
-      <td><?php echo $data['sub2']??''; ?></td>
-      <td><?php echo $data['sub3']??''; ?></td>
-      <td><?php echo $data['sub4']??''; ?></td>
-      <td><?php echo $data['sub5']??''; ?></td>
-      <td><?php echo $data['sub6']??''; ?></td>
-      <td><?php echo $data['sub7']??''; ?></td>
-      <td><?php echo $data['sdate']??''; ?></td>
-      <td>&nbsp;&nbsp;<a href="editsubject.php" <p class="fa fa-edit btn-outline-primary"></p></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                             <a href="deletesubject.php"> <p class="fa fa-times-circle btn-outline-primary"></p></td>
+      <td><?php echo $data['id']??''; ?></td>
+      <td><?php echo $data['fname']??''; ?></td>
+      <td><?php echo $data['lname']??''; ?></td>
+      <td><?php echo $data['course']??''; ?></td>
+      <td><?php echo $data['nationality']??''; ?></td>
+      <td><?php echo $data['mobno']??''; ?></td>
+      <td><?php echo $data['regdate']??''; ?></td>
+      <td>&nbsp;&nbsp;<a href="editstudent.php" <p class="fa fa-edit btn-outline-primary"></p></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                             <a href="deletestudent.php"> <p class="fa fa-times-circle btn-outline-primary"></p></td>
       
      </tr>
      <?php
@@ -170,19 +156,15 @@ function myFunction() {
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
-            <br>
              <!--=========================TABLE==============================-->
-             
-                <!--=========================ADD SUBJECT BUTTON==============================-->
+             <!--=========================ADD STUDENT BUTTON==============================-->
              <div class="col-md-12 col-sm-12 text-center " data-aos="fade-up" data-aos-delay="200">
                     
-                    <p><a class="btn btn-outline-primary" href="addsubject.php" role="button">Add Subjects</a></p>
+                    <p><a class="btn btn-outline-primary" href="addstudent.php" role="button">Add Student</a></p>
                 </div>
-                <!--=========================ADD SUBJECT BUTTON==============================-->
+                <!--=========================ADD STUDENT BUTTON==============================-->
         </div>
-        
     </div>
-    
 </section>		</div>
 <!--=========================FOOTER==============================-->
 <?php include 'footer.php';?>

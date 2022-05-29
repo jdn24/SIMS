@@ -12,18 +12,42 @@ if(isset($_POST['but_logout'])){
     session_destroy();
     header('Location: index.php');
 }
+
+
+/*--=========================DELETE DB==============================*/
+     if(isset($_POST['delete_sid'])){
+        
+        $db= $con;
+        $id = $_POST['sid'];
+           
+
+
+            $sql = "delete from registration ". 
+               "WHERE id ='$id'" ;
+               $result = $db->query($sql);
+            
+               if($result== true){ 
+                header('Location: viewstudent.php');
+               }else{
+                header('Location: deletestudent.php?error');
+               }
+               }
+        
+   
+   /*--=========================UPDATE DB==============================*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
     <!--
      - Roxy: Bootstrap template by GettTemplates.com
      - https://gettemplates.co/roxy
     -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SIMS | Student Management</title>
+    <title>SIMS | Delete Student</title>
     <meta name="description" content="Roxy">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -58,33 +82,39 @@ if(isset($_POST['but_logout'])){
                 <br>
                 <br>
                 <br>
-                <h2 class="display-4 mb-4 "><b>Student Management</b></h2>    
+                <h2 class="section-title"><b>Delete Student</b></h2>    
             </div>
             
-            <div class="row text-center section-content">
-            
-                <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
-                    <img class="" src="img/studentview.png"  width="" height="">
-                    <h5 class="mb-4">View Students</h5>
-                    <p>See an Overview of Different Students enrolled & Delete or Edit Students Details.</p>
-                    <p><a class="btn btn-primary" href="viewstudent.php" role="button">View Students</a></p>
-                </div>
-             
-                <!-- /.col-md-4 col-sm-6  -->
-                <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="400">
-                    <img class="" src="img/studentedit.png"  width="" height="">
-                    <h5 class="mb-4">Add Students</h5>
-                    <p>Add New Student and their Details</p><br>
-                    <p><a class="btn btn-primary" href="addstudent.php" role="button">Add Student</a></p>
-                </div>
-                <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="600">
-                    <img class="" src="img/marks.png"  width="" height="">
-                    <h5 class="mb-4">Marking</h5>
-                    <p>Add or Update Marks for Students.</p><br>
-                    <p><a class="btn btn-primary" href="marking.php" role="button">Marking System</a></p>
-                </div>
-                <!-- /.col-md-4 col-sm-6  -->
+            <div class="panel-body">
+            <?php
+      if(is_array($fetchData))      
+      $sn=1;
+      foreach($fetchData as $data)
+    ?>
+
+<div class="section-content col-md-8 offset-md-2 contact-form-holder mt-4 text-center" data-aos="fade-up">
+<form method="post" name="course-cid" action="">
+                        <div class="row">
+                        <div class="col-md-12">
+					 <label>Enter Student ID<span id="" style="font-size:11px;color:red">*</span>	</label>
+											</div>
+                            <div class="col-md-12 form-group">
+                                <input type="text"style="text-align:center" name="sid" id="sid" value="" placeholder="Enter Student ID" required="required" >
+                            </div>
+                            <div class="col-md-12 text-center">
+                                <button class="btn btn-primary btn-shadow btn-lg" type="submit" name="delete_sid">Delete Student</button>
+                                <a href="viewstudent.php">
+   <input type="button"class="btn btn-outline-primary btn-shadow" value="Cancel" />
+</a>  
             </div>
+            </div>
+            
+            </form>
+</div>		
+													
+				</div>
+
+					</div>
             <!-- /.row -->
         </div>
     </div>

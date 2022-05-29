@@ -23,7 +23,7 @@ if(isset($_POST['but_logout'])){
     -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SIMS | Student Management</title>
+    <title>SIMS | Marking System</title>
     <meta name="description" content="Roxy">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -58,31 +58,32 @@ if(isset($_POST['but_logout'])){
                 <br>
                 <br>
                 <br>
-                <h2 class="display-4 mb-4 "><b>Student Management</b></h2>    
+                <h2 class="display-4 mb-4 "><b>Marking System</b></h2>    
             </div>
             
             <div class="row text-center section-content">
             
-                <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
-                    <img class="" src="img/studentview.png"  width="" height="">
-                    <h5 class="mb-4">View Students</h5>
-                    <p>See an Overview of Different Students enrolled & Delete or Edit Students Details.</p>
-                    <p><a class="btn btn-primary" href="viewstudent.php" role="button">View Students</a></p>
-                </div>
-             
                 <!-- /.col-md-4 col-sm-6  -->
+                <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+                    <img class="" src="img/marksadd.png"  width="" height="">
+                    <h5 class="mb-4">Add Marks</h5>
+                    <p>Add Marks for Students in Respective Subjects.</p>
+                    <p><a class="btn btn-primary" href="addmarks.php" role="button">Add Marks</a></p>
+                </div>
+
                 <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="400">
-                    <img class="" src="img/studentedit.png"  width="" height="">
-                    <h5 class="mb-4">Add Students</h5>
-                    <p>Add New Student and their Details</p><br>
-                    <p><a class="btn btn-primary" href="addstudent.php" role="button">Add Student</a></p>
+                    <img class="" src="img/marksupdate.png"  width="" height="">
+                    <h5 class="mb-4">Update Marks</h5>
+                    <p>Update Marks of Students of Existing Entries.</p>
+                    <p><a class="btn btn-primary" href="updatemarks.php" role="button">Update Marks</a></p>
                 </div>
                 <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="600">
-                    <img class="" src="img/marks.png"  width="" height="">
-                    <h5 class="mb-4">Marking</h5>
-                    <p>Add or Update Marks for Students.</p><br>
-                    <p><a class="btn btn-primary" href="marking.php" role="button">Marking System</a></p>
+                    <img class="" src="img/marksview.png"  width="" height="">
+                    <h5 class="mb-4">View Marks</h5>
+                    <p>View Marks of Students or Delete them.</p>
+                    <p><a class="btn btn-primary" href="viewmarks.php" role="button">View Marks</a></p>
                 </div>
+                
                 <!-- /.col-md-4 col-sm-6  -->
             </div>
             <!-- /.row -->
